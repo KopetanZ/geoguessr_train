@@ -33,6 +33,10 @@ export default function GameComplete({
       case 'language': return '💬';
       case 'phone': return '📞';
       case 'architecture': return '🏛️';
+      case 'road': return '🛣️';
+      case 'infrastructure': return '⚡';
+      case 'nature': return '🌲';
+      case 'business': return '🏪';
       default: return '❓';
     }
   };
@@ -43,6 +47,10 @@ export default function GameComplete({
       case 'language': return '言語';
       case 'phone': return '電話番号';
       case 'architecture': return '建築';
+      case 'road': return '道路・標識';
+      case 'infrastructure': return '公共物';
+      case 'nature': return '自然・植物';
+      case 'business': return '企業・店舗';
       default: return 'その他';
     }
   };

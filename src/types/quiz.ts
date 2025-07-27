@@ -1,6 +1,6 @@
 export interface QuizQuestion {
   id: string;
-  category: 'flag' | 'language' | 'phone' | 'architecture';
+  category: 'flag' | 'language' | 'phone' | 'architecture' | 'road' | 'infrastructure' | 'nature' | 'business';
   question: string;
   answer: string;
   options: string[];
