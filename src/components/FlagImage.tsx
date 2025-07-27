@@ -13,19 +13,20 @@ interface FlagImageProps {
 
 export default function FlagImage({ 
   countryName, 
-  size = 128, 
+  size = 80, 
   className = '', 
   alt 
 }: FlagImageProps) {
   const [imageError, setImageError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [currentSrcIndex, setCurrentSrcIndex] = useState(0);
 
   // 国旗が利用可能かチェック
   if (!hasCountryFlag(countryName)) {
     return (
       <div 
         className={`flex items-center justify-center bg-gray-100 border-2 border-gray-300 rounded ${className}`}
-        style={{ width: size, height: Math.floor(size * 0.67) }}
+        style={{ width: Math.floor(size * 1.5), height: size }}
       >
         <span className="text-gray-500 text-sm font-medium">
           {countryName}
@@ -35,14 +36,15 @@ export default function FlagImage({
   }
 
   const flagSources = getFlagImageSources(countryName, size);
+  const srcArray = [flagSources.flagcdn, flagSources.flagpedia, flagSources.fallback].filter(Boolean);
   const altText = alt || `${countryName}の国旗`;
 
   // エラー時のフォールバック表示
-  if (imageError) {
+  if (imageError && currentSrcIndex >= srcArray.length - 1) {
     return (
       <div 
         className={`flex items-center justify-center bg-gradient-to-br from-blue-50 to-red-50 border-2 border-gray-300 rounded shadow-sm ${className}`}
-        style={{ width: size, height: Math.floor(size * 0.67) }}
+        style={{ width: Math.floor(size * 1.5), height: size }}
       >
         <div className="text-center">
           <div className="text-2xl mb-1">🏁</div>
@@ -54,13 +56,36 @@ export default function FlagImage({
     );
   }
 
+  const handleImageError = () => {
+    // 開発環境でのデバッグ情報
+    if (process.env.NODE_ENV === 'development') {
+      console.warn(`Flag image failed to load: ${srcArray[currentSrcIndex]} for ${countryName}`);
+    }
+    
+    if (currentSrcIndex < srcArray.length - 1) {
+      setCurrentSrcIndex(currentSrcIndex + 1);
+      setImageError(false);
+      setIsLoading(true);
+    } else {
+      setImageError(true);
+      setIsLoading(false);
+    }
+  };
+
+  const handleImageLoad = () => {
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`Flag image loaded successfully: ${srcArray[currentSrcIndex]} for ${countryName}`);
+    }
+    setIsLoading(false);
+  };
+
   return (
-    <div className={`relative ${className}`} style={{ width: size, height: Math.floor(size * 0.67) }}>
+    <div className={`relative ${className}`} style={{ width: Math.floor(size * 1.5), height: size }}>
       {/* ローディング状態 */}
       {isLoading && (
         <div 
           className="absolute inset-0 flex items-center justify-center bg-gray-100 rounded animate-pulse"
-          style={{ width: size, height: Math.floor(size * 0.67) }}
+          style={{ width: Math.floor(size * 1.5), height: size }}
         >
           <div className="w-6 h-6 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
         </div>
@@ -68,17 +93,14 @@ export default function FlagImage({
       
       {/* 国旗画像 */}
       <Image
-        src={flagSources.webp}
+        src={srcArray[currentSrcIndex]}
         alt={altText}
-        width={size}
-        height={Math.floor(size * 0.67)}
+        width={Math.floor(size * 1.5)}
+        height={size}
         className={`rounded shadow-md border border-gray-200 object-cover ${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
-        onLoad={() => setIsLoading(false)}
-        onError={() => {
-          setImageError(true);
-          setIsLoading(false);
-        }}
-        priority={size >= 128} // 大きい画像は優先読み込み
+        onLoad={handleImageLoad}
+        onError={handleImageError}
+        priority={size >= 80} // 大きい画像は優先読み込み
       />
     </div>
   );

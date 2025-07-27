@@ -63,7 +63,7 @@ export default function QuizCard({
         <div className="flex justify-center mb-6">
           <FlagImage 
             countryName={question.flagCountry}
-            size={256}
+            size={120}
             className="shadow-lg"
           />
         </div>
