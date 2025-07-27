@@ -1,13 +1,16 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { QuizQuestion, GameState, CategoryStats, DifficultyLevel } from '@/types/quiz';
+import { QuizQuestion, GameState, CategoryStats, DifficultyLevel, GameMode } from '@/types/quiz';
 import { getRandomQuestions } from '@/data/questions';
 
-const QUESTION_TIME_LIMIT = 30; // 30秒
+const NORMAL_TIME_LIMIT = 30; // ノーマルモード: 30秒
+const TIMEATTACK_TIME_LIMIT = 15; // タイムアタックモード: 15秒
 
-export function useGameLogic(questionCount: number = 10, difficulty?: DifficultyLevel) {
+export function useGameLogic(questionCount: number = 10, difficulty?: DifficultyLevel, gameMode: GameMode = 'normal') {
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
+  const timeLimit = gameMode === 'timeattack' ? TIMEATTACK_TIME_LIMIT : NORMAL_TIME_LIMIT;
+  
   const [gameState, setGameState] = useState<GameState>({
     currentQuestionIndex: 0,
     score: 0,
@@ -15,8 +18,10 @@ export function useGameLogic(questionCount: number = 10, difficulty?: Difficulty
     isGameComplete: false,
     selectedAnswer: null,
     showAnswer: false,
-    timeRemaining: QUESTION_TIME_LIMIT,
+    timeRemaining: timeLimit,
     selectedDifficulty: difficulty || 'easy',
+    gameMode: gameMode,
+    totalTimeBonus: 0,
   });
   const [answers, setAnswers] = useState<{ question: QuizQuestion; userAnswer: string; correct: boolean }[]>([]);
   const [streak, setStreak] = useState(0);
@@ -32,12 +37,14 @@ export function useGameLogic(questionCount: number = 10, difficulty?: Difficulty
       isGameComplete: false,
       selectedAnswer: null,
       showAnswer: false,
-      timeRemaining: QUESTION_TIME_LIMIT,
+      timeRemaining: timeLimit,
       selectedDifficulty: difficulty || 'easy',
+      gameMode: gameMode,
+      totalTimeBonus: 0,
     });
     setAnswers([]);
     setStreak(0);
-  }, [questionCount, difficulty]);
+  }, [questionCount, difficulty, gameMode, timeLimit]);
 
   // タイマー
   useEffect(() => {
@@ -72,12 +79,20 @@ export function useGameLogic(questionCount: number = 10, difficulty?: Difficulty
 
     const currentQuestion = questions[gameState.currentQuestionIndex];
     const isCorrect = answer === currentQuestion.answer;
+    
+    // タイムアタックモードでのボーナス計算
+    let timeBonus = 0;
+    if (gameState.gameMode === 'timeattack' && isCorrect) {
+      // 残り時間に応じてボーナス（最大3ポイント）
+      timeBonus = Math.floor(gameState.timeRemaining / 5);
+    }
 
     setGameState(prev => ({
       ...prev,
       selectedAnswer: answer,
       showAnswer: true,
-      score: prev.score + (isCorrect ? 1 : 0),
+      score: prev.score + (isCorrect ? 1 : 0) + timeBonus,
+      totalTimeBonus: prev.totalTimeBonus + timeBonus,
     }));
 
     setAnswers(prev => [
@@ -117,7 +132,7 @@ export function useGameLogic(questionCount: number = 10, difficulty?: Difficulty
         currentQuestionIndex: prev.currentQuestionIndex + 1,
         selectedAnswer: null,
         showAnswer: false,
-        timeRemaining: QUESTION_TIME_LIMIT,
+        timeRemaining: timeLimit,
       }));
     }
   };

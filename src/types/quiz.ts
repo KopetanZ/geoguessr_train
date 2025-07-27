@@ -1,4 +1,5 @@
 export type DifficultyLevel = 'easy' | 'medium' | 'hard';
+export type GameMode = 'normal' | 'timeattack';
 
 export interface QuizQuestion {
   id: string;
@@ -22,10 +23,33 @@ export interface GameState {
   showAnswer: boolean;
   timeRemaining: number;
   selectedDifficulty: DifficultyLevel;
+  gameMode: GameMode;
+  totalTimeBonus: number;
 }
 
 export interface CategoryStats {
   category: string;
   total: number;
   correct: number;
+}
+
+export interface GameStats {
+  totalGames: number;
+  totalQuestions: number;
+  totalCorrect: number;
+  bestScore: number;
+  averageScore: number;
+  categoryStats: { [category: string]: CategoryStats };
+  difficultyStats: { [difficulty: string]: CategoryStats };
+  gameHistory: GameResult[];
+}
+
+export interface GameResult {
+  id: string;
+  date: string;
+  score: number;
+  totalQuestions: number;
+  difficulty?: DifficultyLevel;
+  timeSpent: number;
+  categoryResults: CategoryStats[];
 }

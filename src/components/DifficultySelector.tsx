@@ -1,12 +1,14 @@
 'use client';
 
-import { DifficultyLevel } from '@/types/quiz';
+import { useState } from 'react';
+import { DifficultyLevel, GameMode } from '@/types/quiz';
 
 interface DifficultySelectorProps {
-  onStartGame: (difficulty?: DifficultyLevel) => void;
+  onStartGame: (difficulty?: DifficultyLevel, gameMode?: GameMode) => void;
 }
 
 export default function DifficultySelector({ onStartGame }: DifficultySelectorProps) {
+  const [selectedGameMode, setSelectedGameMode] = useState<GameMode>('normal');
   const difficultyOptions = [
     {
       level: undefined,
@@ -46,12 +48,46 @@ export default function DifficultySelector({ onStartGame }: DifficultySelectorPr
     <div className="max-w-4xl mx-auto">
       {/* タイトルセクション */}
       <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">
-          🎯 難易度を選択してください
+        <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
+          🎯 ゲーム設定
         </h2>
-        <p className="text-lg text-gray-600 mb-2">
-          あなたのレベルに合わせて問題を選択できます
+        <p className="text-lg text-gray-600 dark:text-gray-300 mb-4">
+          ゲームモードと難易度を選択してください
         </p>
+
+        {/* ゲームモード選択 */}
+        <div className="mb-6">
+          <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-3">🎮 ゲームモード</h3>
+          <div className="flex justify-center space-x-4">
+            <button
+              onClick={() => setSelectedGameMode('normal')}
+              className={`px-6 py-3 rounded-lg font-medium transition-all ${
+                selectedGameMode === 'normal'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
+              }`}
+            >
+              📚 ノーマル
+            </button>
+            <button
+              onClick={() => setSelectedGameMode('timeattack')}
+              className={`px-6 py-3 rounded-lg font-medium transition-all ${
+                selectedGameMode === 'timeattack'
+                  ? 'bg-red-600 text-white'
+                  : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
+              }`}
+            >
+              ⚡ タイムアタック
+            </button>
+          </div>
+          <div className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+            {selectedGameMode === 'normal' ? (
+              '制限時間30秒、落ち着いて解答できます'
+            ) : (
+              '制限時間15秒、速答でボーナスポイント！'
+            )}
+          </div>
+        </div>
         <div className="bg-blue-50 rounded-lg p-4 mb-6">
           <div className="text-sm text-blue-800">
             <p className="font-medium mb-1">📊 問題内容</p>
@@ -74,7 +110,7 @@ export default function DifficultySelector({ onStartGame }: DifficultySelectorPr
         {difficultyOptions.map((option, index) => (
           <button
             key={index}
-            onClick={() => onStartGame(option.level)}
+            onClick={() => onStartGame(option.level, selectedGameMode)}
             className={`relative overflow-hidden rounded-xl bg-gradient-to-br ${option.color} ${option.hoverColor} text-white p-6 transform transition-all duration-200 hover:scale-105 hover:shadow-xl`}
           >
             <div className="relative z-10">

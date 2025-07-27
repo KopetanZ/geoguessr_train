@@ -1,11 +1,15 @@
 'use client';
 
-import { CategoryStats } from '@/types/quiz';
+import { useEffect } from 'react';
+import { CategoryStats, DifficultyLevel } from '@/types/quiz';
+import { useStats } from '@/hooks/useStats';
 
 interface GameCompleteProps {
   score: number;
   totalQuestions: number;
   categoryStats: CategoryStats[];
+  difficulty?: DifficultyLevel;
+  timeSpent?: number;
   onRestart: () => void;
 }
 
@@ -13,8 +17,16 @@ export default function GameComplete({
   score,
   totalQuestions,
   categoryStats,
+  difficulty,
+  timeSpent = 0,
   onRestart
 }: GameCompleteProps) {
+  const { recordGameResult } = useStats();
+
+  // ゲーム結果を統計に記録
+  useEffect(() => {
+    recordGameResult(score, totalQuestions, categoryStats, difficulty, timeSpent);
+  }, [score, totalQuestions, categoryStats, difficulty, timeSpent, recordGameResult]);
   const percentage = Math.round((score / totalQuestions) * 100);
   
   const getPerformanceMessage = (percentage: number) => {
