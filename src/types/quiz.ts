@@ -7,6 +7,7 @@ export interface QuizQuestion {
   explanation: string;
   funFact: string;
   imageUrl?: string;
+  flagCountry?: string; // 国旗問題の場合の国名
 }
 
 export interface GameState {

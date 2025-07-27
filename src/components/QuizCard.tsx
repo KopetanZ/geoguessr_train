@@ -1,6 +1,7 @@
 'use client';
 
 import { QuizQuestion } from '@/types/quiz';
+import FlagImage from './FlagImage';
 
 interface QuizCardProps {
   question: QuizQuestion;
@@ -57,12 +58,20 @@ export default function QuizCard({
         {question.question}
       </h2>
 
-      {/* 国旗の絵文字表示 */}
-      {question.imageUrl && (
+      {/* 国旗画像表示 */}
+      {question.imageUrl === 'flag' && question.flagCountry ? (
+        <div className="flex justify-center mb-6">
+          <FlagImage 
+            countryName={question.flagCountry}
+            size={256}
+            className="shadow-lg"
+          />
+        </div>
+      ) : question.imageUrl && question.imageUrl !== 'flag' ? (
         <div className="text-6xl text-center mb-6">
           {question.imageUrl}
         </div>
-      )}
+      ) : null}
 
       {/* 選択肢 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">

@@ -10,7 +10,8 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['日本', '韓国', '台湾', 'バングラデシュ'],
     explanation: '日の丸と呼ばれる白地に赤い丸の旗です。',
     funFact: '日本の国旗は世界で最もシンプルなデザインの一つです。',
-    imageUrl: '🇯🇵'
+    imageUrl: 'flag',
+    flagCountry: '日本'
   },
   {
     id: '2', 
@@ -20,7 +21,8 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['カナダ', 'ペルー', 'レバノン', 'オーストリア'],
     explanation: '赤いメープルリーフが特徴的なカナダの国旗です。',
     funFact: 'メープルリーフは秋になると美しく紅葉し、カナダのシンボルとなっています。',
-    imageUrl: '🇨🇦'
+    imageUrl: 'flag',
+    flagCountry: 'カナダ'
   },
   {
     id: '3',
@@ -30,7 +32,8 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['ブラジル', 'アルゼンチン', 'ポルトガル', 'コロンビア'],
     explanation: '緑地に黄色い菱形と青い円があるブラジルの国旗です。',
     funFact: '国旗の青い円には「ORDEM E PROGRESSO」（秩序と進歩）という標語が書かれています。',
-    imageUrl: '🇧🇷'
+    imageUrl: 'flag',
+    flagCountry: 'ブラジル'
   },
 
   // 言語問題
@@ -124,12 +127,46 @@ export const quizQuestions: QuizQuestion[] = [
   {
     id: '13',
     category: 'flag',
-    question: 'この国旗はどの国のものですか？（緑、白、赤の縦縞）',
+    question: 'この国旗はどの国のものですか？',
     answer: 'イタリア',
     options: ['イタリア', 'メキシコ', 'ハンガリー', 'ブルガリア'],
     explanation: 'イタリアの三色旗（トリコローレ）です。',
     funFact: 'この旗の色は「希望、信念、愛」を表していると言われています。',
-    imageUrl: '🇮🇹'
+    imageUrl: 'flag',
+    flagCountry: 'イタリア'
+  },
+  {
+    id: '16',
+    category: 'flag',
+    question: 'この国旗はどの国のものですか？',
+    answer: 'イギリス',
+    options: ['イギリス', 'オーストラリア', 'ニュージーランド', 'アイルランド'],
+    explanation: 'ユニオンジャックと呼ばれるイギリスの国旗です。',
+    funFact: 'この旗はイングランド、スコットランド、北アイルランドの旗を組み合わせたものです。',
+    imageUrl: 'flag',
+    flagCountry: 'イギリス'
+  },
+  {
+    id: '17',
+    category: 'flag',
+    question: 'この国旗はどの国のものですか？',
+    answer: 'スペイン',
+    options: ['スペイン', 'ポルトガル', 'コロンビア', 'ベネズエラ'],
+    explanation: '赤と黄色のストライプが特徴的なスペインの国旗です。',
+    funFact: '中央の紋章には「Plus Ultra（更なる彼方へ）」という標語が書かれています。',
+    imageUrl: 'flag',
+    flagCountry: 'スペイン'
+  },
+  {
+    id: '18',
+    category: 'flag',
+    question: 'この国旗はどの国のものですか？',
+    answer: 'ドイツ',
+    options: ['ドイツ', 'ベルギー', 'オーストリア', 'オランダ'],
+    explanation: '黒、赤、黄金の横縞が特徴的なドイツの国旗です。',
+    funFact: 'この色は19世紀の自由主義運動のシンボルカラーでした。',
+    imageUrl: 'flag',
+    flagCountry: 'ドイツ'
   },
   {
     id: '14',
