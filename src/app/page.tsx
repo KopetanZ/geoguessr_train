@@ -1,11 +1,17 @@
 'use client';
 
+import { useState } from 'react';
+import { DifficultyLevel } from '@/types/quiz';
 import { useGameLogic } from '@/hooks/useGameLogic';
 import QuizCard from '@/components/QuizCard';
 import ScoreBoard from '@/components/ScoreBoard';
 import GameComplete from '@/components/GameComplete';
+import DifficultySelector from '@/components/DifficultySelector';
 
 export default function Home() {
+  const [selectedDifficulty, setSelectedDifficulty] = useState<DifficultyLevel | undefined>(undefined);
+  const [gameStarted, setGameStarted] = useState(false);
+
   const {
     gameState,
     currentQuestion,
@@ -14,8 +20,44 @@ export default function Home() {
     handleAnswer,
     nextQuestion,
     restartGame,
-  } = useGameLogic(10);
+  } = useGameLogic(10, selectedDifficulty);
 
+  const handleStartGame = (difficulty?: DifficultyLevel) => {
+    setSelectedDifficulty(difficulty);
+    setGameStarted(true);
+  };
+
+  const handleRestartGame = () => {
+    restartGame();
+    setGameStarted(false);
+    setSelectedDifficulty(undefined);
+  };
+
+  // ゲーム開始前の難易度選択画面
+  if (!gameStarted) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+        <header className="bg-white shadow-sm">
+          <div className="max-w-4xl mx-auto px-4 py-4">
+            <div className="text-center">
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-800">
+                🌍 Geoguesser トレーニング
+              </h1>
+              <p className="text-gray-600 mt-1">
+                国旗・言語・電話番号・建築で国を当てよう！
+              </p>
+            </div>
+          </div>
+        </header>
+        
+        <main className="max-w-4xl mx-auto px-4 py-8">
+          <DifficultySelector onStartGame={handleStartGame} />
+        </main>
+      </div>
+    );
+  }
+
+  // ローディング画面
   if (!currentQuestion && !gameState.isGameComplete) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
@@ -50,7 +92,7 @@ export default function Home() {
             score={gameState.score}
             totalQuestions={gameState.totalQuestions}
             categoryStats={categoryStats}
-            onRestart={restartGame}
+            onRestart={handleRestartGame}
           />
         ) : (
           <>

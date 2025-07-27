@@ -1,12 +1,12 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { QuizQuestion, GameState, CategoryStats } from '@/types/quiz';
+import { QuizQuestion, GameState, CategoryStats, DifficultyLevel } from '@/types/quiz';
 import { getRandomQuestions } from '@/data/questions';
 
 const QUESTION_TIME_LIMIT = 30; // 30秒
 
-export function useGameLogic(questionCount: number = 10) {
+export function useGameLogic(questionCount: number = 10, difficulty?: DifficultyLevel) {
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
   const [gameState, setGameState] = useState<GameState>({
     currentQuestionIndex: 0,
@@ -16,13 +16,14 @@ export function useGameLogic(questionCount: number = 10) {
     selectedAnswer: null,
     showAnswer: false,
     timeRemaining: QUESTION_TIME_LIMIT,
+    selectedDifficulty: difficulty || 'easy',
   });
   const [answers, setAnswers] = useState<{ question: QuizQuestion; userAnswer: string; correct: boolean }[]>([]);
   const [streak, setStreak] = useState(0);
 
   // ゲーム初期化
   const initializeGame = useCallback(() => {
-    const newQuestions = getRandomQuestions(questionCount);
+    const newQuestions = getRandomQuestions(questionCount, difficulty);
     setQuestions(newQuestions);
     setGameState({
       currentQuestionIndex: 0,
@@ -32,10 +33,11 @@ export function useGameLogic(questionCount: number = 10) {
       selectedAnswer: null,
       showAnswer: false,
       timeRemaining: QUESTION_TIME_LIMIT,
+      selectedDifficulty: difficulty || 'easy',
     });
     setAnswers([]);
     setStreak(0);
-  }, [questionCount]);
+  }, [questionCount, difficulty]);
 
   // タイマー
   useEffect(() => {

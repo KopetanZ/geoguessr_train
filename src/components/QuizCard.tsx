@@ -46,14 +46,26 @@ export default function QuizCard({
     }
   };
 
+  const getDifficultyBadge = (difficulty: string) => {
+    switch (difficulty) {
+      case 'easy': return { label: '簡単', color: 'bg-green-100 text-green-800' };
+      case 'medium': return { label: '普通', color: 'bg-yellow-100 text-yellow-800' };
+      case 'hard': return { label: '難しい', color: 'bg-red-100 text-red-800' };
+      default: return { label: '？', color: 'bg-gray-100 text-gray-800' };
+    }
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-lg p-6 max-w-2xl mx-auto">
       {/* カテゴリーとタイマー */}
       <div className="flex justify-between items-center mb-4">
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-3">
           <span className="text-2xl">{getCategoryIcon(question.category)}</span>
           <span className="text-sm font-medium text-gray-600">
             {getCategoryLabel(question.category)}
+          </span>
+          <span className={`px-2 py-1 rounded-full text-xs font-medium ${getDifficultyBadge(question.difficulty).color}`}>
+            {getDifficultyBadge(question.difficulty).label}
           </span>
         </div>
         <div className={`font-bold text-lg ${timeRemaining <= 10 ? 'text-red-500' : 'text-blue-600'}`}>

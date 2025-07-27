@@ -1,6 +1,9 @@
+export type DifficultyLevel = 'easy' | 'medium' | 'hard';
+
 export interface QuizQuestion {
   id: string;
   category: 'flag' | 'language' | 'phone' | 'architecture' | 'road' | 'infrastructure' | 'nature' | 'business';
+  difficulty: DifficultyLevel;
   question: string;
   answer: string;
   options: string[];
@@ -18,6 +21,7 @@ export interface GameState {
   selectedAnswer: string | null;
   showAnswer: boolean;
   timeRemaining: number;
+  selectedDifficulty: DifficultyLevel;
 }
 
 export interface CategoryStats {
