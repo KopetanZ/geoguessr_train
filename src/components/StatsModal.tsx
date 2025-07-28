@@ -5,9 +5,10 @@ import { useStats } from '@/hooks/useStats';
 interface StatsModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onOpenDetailedStats?: () => void;
 }
 
-export default function StatsModal({ isOpen, onClose }: StatsModalProps) {
+export default function StatsModal({ isOpen, onClose, onOpenDetailedStats }: StatsModalProps) {
   const { stats, resetStats, getAccuracy } = useStats();
 
   if (!isOpen) return null;
@@ -186,15 +187,26 @@ export default function StatsModal({ isOpen, onClose }: StatsModalProps) {
             </div>
           )}
 
-          {/* 統計リセットボタン */}
-          <div className="text-center pt-4 border-t dark:border-gray-700">
+          {/* アクションボタン */}
+          <div className="flex justify-center space-x-4 pt-4 border-t dark:border-gray-700">
+            {onOpenDetailedStats && (
+              <button
+                onClick={() => {
+                  onClose();
+                  onOpenDetailedStats();
+                }}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+              >
+                📈 詳細統計を見る
+              </button>
+            )}
             <button
               onClick={() => {
                 if (confirm('統計データをリセットしますか？この操作は取り消せません。')) {
                   resetStats();
                 }
               }}
-              className="text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 text-sm"
+              className="text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 text-sm px-4 py-2 rounded-lg border border-red-300 dark:border-red-600 hover:bg-red-50 dark:hover:bg-red-900 transition-colors"
             >
               🗑️ 統計をリセット
             </button>

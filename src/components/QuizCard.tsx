@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { QuizQuestion } from '@/types/quiz';
+import { QuizQuestion, GameMode } from '@/types/quiz';
 import FlagImage from './FlagImage';
 
 interface QuizCardProps {
@@ -10,7 +10,7 @@ interface QuizCardProps {
   selectedAnswer: string | null;
   showAnswer: boolean;
   timeRemaining: number;
-  gameMode?: 'normal' | 'timeattack';
+  gameMode?: GameMode;
 }
 
 export default function QuizCard({
@@ -107,11 +107,16 @@ export default function QuizCard({
         </div>
         <div className="text-right">
           <div className={`font-bold text-lg ${timeRemaining <= 5 ? 'text-red-500 animate-pulse' : 'text-blue-600 dark:text-blue-400'}`}>
-            {gameMode === 'timeattack' ? '⚡' : '⏱️'} {timeRemaining}s
+            {gameMode === 'timeattack' ? '⚡' : gameMode === 'endless' ? '♾️' : '⏱️'} {timeRemaining}s
           </div>
           {gameMode === 'timeattack' && !showAnswer && (
             <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
               速答ボーナス: +{Math.floor(timeRemaining / 5)}
+            </div>
+          )}
+          {gameMode === 'endless' && !showAnswer && (
+            <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+              エンドレス - 間違いに注意！
             </div>
           )}
         </div>

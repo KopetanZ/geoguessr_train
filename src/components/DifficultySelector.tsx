@@ -58,10 +58,10 @@ export default function DifficultySelector({ onStartGame }: DifficultySelectorPr
         {/* ゲームモード選択 */}
         <div className="mb-6">
           <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-3">🎮 ゲームモード</h3>
-          <div className="flex justify-center space-x-4">
+          <div className="flex justify-center space-x-3">
             <button
               onClick={() => setSelectedGameMode('normal')}
-              className={`px-6 py-3 rounded-lg font-medium transition-all ${
+              className={`px-4 py-3 rounded-lg font-medium transition-all text-sm ${
                 selectedGameMode === 'normal'
                   ? 'bg-blue-600 text-white'
                   : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
@@ -71,7 +71,7 @@ export default function DifficultySelector({ onStartGame }: DifficultySelectorPr
             </button>
             <button
               onClick={() => setSelectedGameMode('timeattack')}
-              className={`px-6 py-3 rounded-lg font-medium transition-all ${
+              className={`px-4 py-3 rounded-lg font-medium transition-all text-sm ${
                 selectedGameMode === 'timeattack'
                   ? 'bg-red-600 text-white'
                   : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
@@ -79,12 +79,24 @@ export default function DifficultySelector({ onStartGame }: DifficultySelectorPr
             >
               ⚡ タイムアタック
             </button>
+            <button
+              onClick={() => setSelectedGameMode('endless')}
+              className={`px-4 py-3 rounded-lg font-medium transition-all text-sm ${
+                selectedGameMode === 'endless'
+                  ? 'bg-purple-600 text-white'
+                  : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
+              }`}
+            >
+              ♾️ エンドレス
+            </button>
           </div>
           <div className="mt-2 text-sm text-gray-600 dark:text-gray-400">
             {selectedGameMode === 'normal' ? (
               '制限時間30秒、落ち着いて解答できます'
-            ) : (
+            ) : selectedGameMode === 'timeattack' ? (
               '制限時間15秒、速答でボーナスポイント！'
+            ) : (
+              '制限時間20秒、3回間違えるまで挑戦！ハイスコアを目指そう'
             )}
           </div>
         </div>

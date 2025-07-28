@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { GameStats, GameResult, CategoryStats, DifficultyLevel } from '@/types/quiz';
+import { GameStats, GameResult, CategoryStats, DifficultyLevel, GameMode } from '@/types/quiz';
 
 const STATS_STORAGE_KEY = 'geoguesser-stats';
 
@@ -13,7 +13,9 @@ const initialStats: GameStats = {
   averageScore: 0,
   categoryStats: {},
   difficultyStats: {},
-  gameHistory: []
+  gameHistory: [],
+  endlessHighScore: 0,
+  endlessGames: 0
 };
 
 export function useStats() {
@@ -24,7 +26,15 @@ export function useStats() {
     const saved = localStorage.getItem(STATS_STORAGE_KEY);
     if (saved) {
       try {
-        setStats(JSON.parse(saved));
+        const parsedStats = JSON.parse(saved);
+        // 新しいフィールドが追加された場合のマイグレーション
+        const migratedStats = {
+          ...initialStats,
+          ...parsedStats,
+          endlessHighScore: parsedStats.endlessHighScore ?? 0,
+          endlessGames: parsedStats.endlessGames ?? 0
+        };
+        setStats(migratedStats);
       } catch (error) {
         console.error('Failed to parse stats:', error);
         setStats(initialStats);
@@ -44,7 +54,8 @@ export function useStats() {
     totalQuestions: number,
     categoryResults: CategoryStats[],
     difficulty?: DifficultyLevel,
-    timeSpent: number = 0
+    timeSpent: number = 0,
+    gameMode?: GameMode
   ) => {
     const gameResult: GameResult = {
       id: Date.now().toString(),
@@ -53,7 +64,9 @@ export function useStats() {
       totalQuestions,
       difficulty,
       timeSpent,
-      categoryResults
+      categoryResults,
+      gameMode,
+      isEndless: gameMode === 'endless'
     };
 
     setStats(prevStats => {
@@ -65,6 +78,12 @@ export function useStats() {
       newStats.totalCorrect += score;
       newStats.bestScore = Math.max(newStats.bestScore, score);
       newStats.averageScore = newStats.totalCorrect / newStats.totalQuestions;
+
+      // エンドレスモード専用統計を更新
+      if (gameMode === 'endless') {
+        newStats.endlessGames += 1;
+        newStats.endlessHighScore = Math.max(newStats.endlessHighScore, score);
+      }
 
       // カテゴリー別統計を更新
       categoryResults.forEach(categoryResult => {

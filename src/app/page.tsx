@@ -9,12 +9,14 @@ import GameComplete from '@/components/GameComplete';
 import DifficultySelector from '@/components/DifficultySelector';
 import ThemeToggle from '@/components/ThemeToggle';
 import StatsModal from '@/components/StatsModal';
+import DetailedStats from '@/components/DetailedStats';
 
 export default function Home() {
   const [selectedDifficulty, setSelectedDifficulty] = useState<DifficultyLevel | undefined>(undefined);
   const [selectedGameMode, setSelectedGameMode] = useState<GameMode>('normal');
   const [gameStarted, setGameStarted] = useState(false);
   const [showStats, setShowStats] = useState(false);
+  const [showDetailedStats, setShowDetailedStats] = useState(false);
 
   const {
     gameState,
@@ -66,6 +68,13 @@ export default function Home() {
                 >
                   📊
                 </button>
+                <button
+                  onClick={() => setShowDetailedStats(true)}
+                  className="p-2 rounded-lg bg-blue-100 dark:bg-blue-900 hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors text-blue-600 dark:text-blue-400"
+                  aria-label="詳細統計を表示"
+                >
+                  📈
+                </button>
               </div>
               <div className="text-center flex-1">
                 <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">
@@ -113,6 +122,13 @@ export default function Home() {
               >
                 📊
               </button>
+              <button
+                onClick={() => setShowDetailedStats(true)}
+                className="p-2 rounded-lg bg-blue-100 dark:bg-blue-900 hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors text-blue-600 dark:text-blue-400"
+                aria-label="詳細統計を表示"
+              >
+                📈
+              </button>
             </div>
             <div className="text-center flex-1">
               <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">
@@ -138,6 +154,8 @@ export default function Home() {
             totalQuestions={gameState.totalQuestions}
             categoryStats={categoryStats}
             difficulty={selectedDifficulty}
+            gameMode={selectedGameMode}
+            isEndlessMode={gameState.isEndlessMode}
             onRestart={handleRestartGame}
           />
         ) : (
@@ -147,6 +165,8 @@ export default function Home() {
               totalQuestions={gameState.totalQuestions}
               score={gameState.score}
               streak={streak}
+              lives={gameState.lives}
+              isEndlessMode={gameState.isEndlessMode}
             />
             
             <QuizCard
@@ -194,7 +214,14 @@ export default function Home() {
       </footer>
 
       {/* 統計モーダル */}
-      <StatsModal isOpen={showStats} onClose={() => setShowStats(false)} />
+      <StatsModal 
+        isOpen={showStats} 
+        onClose={() => setShowStats(false)}
+        onOpenDetailedStats={() => setShowDetailedStats(true)}
+      />
+      
+      {/* 詳細統計モーダル */}
+      <DetailedStats isOpen={showDetailedStats} onClose={() => setShowDetailedStats(false)} />
     </div>
   );
 }

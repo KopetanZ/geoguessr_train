@@ -1,5 +1,5 @@
 export type DifficultyLevel = 'easy' | 'medium' | 'hard';
-export type GameMode = 'normal' | 'timeattack';
+export type GameMode = 'normal' | 'timeattack' | 'endless';
 
 export interface QuizQuestion {
   id: string;
@@ -25,6 +25,8 @@ export interface GameState {
   selectedDifficulty: DifficultyLevel;
   gameMode: GameMode;
   totalTimeBonus: number;
+  lives?: number;
+  isEndlessMode?: boolean;
 }
 
 export interface CategoryStats {
@@ -42,6 +44,8 @@ export interface GameStats {
   categoryStats: { [category: string]: CategoryStats };
   difficultyStats: { [difficulty: string]: CategoryStats };
   gameHistory: GameResult[];
+  endlessHighScore: number;
+  endlessGames: number;
 }
 
 export interface GameResult {
@@ -52,4 +56,6 @@ export interface GameResult {
   difficulty?: DifficultyLevel;
   timeSpent: number;
   categoryResults: CategoryStats[];
+  gameMode?: GameMode;
+  isEndless?: boolean;
 }

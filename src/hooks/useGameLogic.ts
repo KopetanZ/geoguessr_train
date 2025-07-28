@@ -6,15 +6,18 @@ import { getRandomQuestions } from '@/data/questions';
 
 const NORMAL_TIME_LIMIT = 30; // ノーマルモード: 30秒
 const TIMEATTACK_TIME_LIMIT = 15; // タイムアタックモード: 15秒
+const ENDLESS_TIME_LIMIT = 20; // エンドレスモード: 20秒
+const ENDLESS_LIVES = 3; // エンドレスモードのライフ数
 
 export function useGameLogic(questionCount: number = 10, difficulty?: DifficultyLevel, gameMode: GameMode = 'normal') {
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
-  const timeLimit = gameMode === 'timeattack' ? TIMEATTACK_TIME_LIMIT : NORMAL_TIME_LIMIT;
+  const timeLimit = gameMode === 'timeattack' ? TIMEATTACK_TIME_LIMIT : 
+                    gameMode === 'endless' ? ENDLESS_TIME_LIMIT : NORMAL_TIME_LIMIT;
   
   const [gameState, setGameState] = useState<GameState>({
     currentQuestionIndex: 0,
     score: 0,
-    totalQuestions: questionCount,
+    totalQuestions: gameMode === 'endless' ? 0 : questionCount,
     isGameComplete: false,
     selectedAnswer: null,
     showAnswer: false,
@@ -22,18 +25,21 @@ export function useGameLogic(questionCount: number = 10, difficulty?: Difficulty
     selectedDifficulty: difficulty || 'easy',
     gameMode: gameMode,
     totalTimeBonus: 0,
+    lives: gameMode === 'endless' ? ENDLESS_LIVES : undefined,
+    isEndlessMode: gameMode === 'endless',
   });
   const [answers, setAnswers] = useState<{ question: QuizQuestion; userAnswer: string; correct: boolean }[]>([]);
   const [streak, setStreak] = useState(0);
 
   // ゲーム初期化
   const initializeGame = useCallback(() => {
-    const newQuestions = getRandomQuestions(questionCount, difficulty);
+    const initialQuestionCount = gameMode === 'endless' ? 1 : questionCount;
+    const newQuestions = getRandomQuestions(initialQuestionCount, difficulty);
     setQuestions(newQuestions);
     setGameState({
       currentQuestionIndex: 0,
       score: 0,
-      totalQuestions: questionCount,
+      totalQuestions: gameMode === 'endless' ? 0 : questionCount,
       isGameComplete: false,
       selectedAnswer: null,
       showAnswer: false,
@@ -41,6 +47,8 @@ export function useGameLogic(questionCount: number = 10, difficulty?: Difficulty
       selectedDifficulty: difficulty || 'easy',
       gameMode: gameMode,
       totalTimeBonus: 0,
+      lives: gameMode === 'endless' ? ENDLESS_LIVES : undefined,
+      isEndlessMode: gameMode === 'endless',
     });
     setAnswers([]);
     setStreak(0);
@@ -87,12 +95,25 @@ export function useGameLogic(questionCount: number = 10, difficulty?: Difficulty
       timeBonus = Math.floor(gameState.timeRemaining / 5);
     }
 
+    // エンドレスモードでのライフ管理
+    let newLives = gameState.lives;
+    let gameComplete = false;
+    
+    if (gameState.isEndlessMode && !isCorrect) {
+      newLives = (gameState.lives || ENDLESS_LIVES) - 1;
+      if (newLives <= 0) {
+        gameComplete = true;
+      }
+    }
+
     setGameState(prev => ({
       ...prev,
       selectedAnswer: answer,
       showAnswer: true,
       score: prev.score + (isCorrect ? 1 : 0) + timeBonus,
       totalTimeBonus: prev.totalTimeBonus + timeBonus,
+      lives: newLives,
+      isGameComplete: gameComplete,
     }));
 
     setAnswers(prev => [
@@ -124,16 +145,31 @@ export function useGameLogic(questionCount: number = 10, difficulty?: Difficulty
 
   // 次の問題へ
   const nextQuestion = () => {
-    if (gameState.currentQuestionIndex + 1 >= questions.length) {
-      setGameState(prev => ({ ...prev, isGameComplete: true }));
-    } else {
+    if (gameState.isEndlessMode) {
+      // エンドレスモードでは新しい問題を追加
+      const newQuestion = getRandomQuestions(1, difficulty)[0];
+      setQuestions(prev => [...prev, newQuestion]);
       setGameState(prev => ({
         ...prev,
         currentQuestionIndex: prev.currentQuestionIndex + 1,
         selectedAnswer: null,
         showAnswer: false,
         timeRemaining: timeLimit,
+        totalQuestions: prev.totalQuestions + 1,
       }));
+    } else {
+      // 通常モードでは既存の処理
+      if (gameState.currentQuestionIndex + 1 >= questions.length) {
+        setGameState(prev => ({ ...prev, isGameComplete: true }));
+      } else {
+        setGameState(prev => ({
+          ...prev,
+          currentQuestionIndex: prev.currentQuestionIndex + 1,
+          selectedAnswer: null,
+          showAnswer: false,
+          timeRemaining: timeLimit,
+        }));
+      }
     }
   };
 
