@@ -22,6 +22,14 @@ export default function StatsModal({ isOpen, onClose }: StatsModalProps) {
       case 'infrastructure': return '⚡';
       case 'nature': return '🌲';
       case 'business': return '🏪';
+      case 'hemisphere': return '🌍';
+      case 'coverage': return '🗺️';
+      case 'car-meta': return '🚗';
+      case 'bollard': return '🛡️';
+      case 'sign-meta': return '🚦';
+      case 'script': return '📝';
+      case 'advanced-meta': return '🤓';
+      case 'japan-specific': return '🇯🇵';
       default: return '❓';
     }
   };
@@ -36,6 +44,14 @@ export default function StatsModal({ isOpen, onClose }: StatsModalProps) {
       case 'infrastructure': return '公共物';
       case 'nature': return '自然・植物';
       case 'business': return '企業・店舗';
+      case 'hemisphere': return '半球判定';
+      case 'coverage': return 'カバレッジ';
+      case 'car-meta': return '車メタ';
+      case 'bollard': return 'ボラード';
+      case 'sign-meta': return '標識メタ';
+      case 'script': return '文字・言語';
+      case 'advanced-meta': return '上級メタ';
+      case 'japan-specific': return '日本特化';
       default: return 'その他';
     }
   };

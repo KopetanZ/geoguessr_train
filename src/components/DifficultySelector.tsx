@@ -16,7 +16,7 @@ export default function DifficultySelector({ onStartGame }: DifficultySelectorPr
       description: '全難易度からランダム出題',
       color: 'from-purple-500 to-indigo-600',
       hoverColor: 'hover:from-purple-600 hover:to-indigo-700',
-      questions: '177問から出題'
+      questions: '200問から出題'
     },
     {
       level: 'easy' as DifficultyLevel,
@@ -94,6 +94,14 @@ export default function DifficultySelector({ onStartGame }: DifficultySelectorPr
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs">
               <span>🏁 国旗 (100問)</span>
               <span>📞 電話番号 (50問)</span>
+              <span>🌍 半球判定 (3問)</span>
+              <span>🗺️ カバレッジ (3問)</span>
+              <span>🚗 車メタ (2問)</span>
+              <span>🛡️ ボラード (3問)</span>
+              <span>🚦 標識メタ (3問)</span>
+              <span>📝 文字・言語 (3問)</span>
+              <span>🤓 上級メタ (3問)</span>
+              <span>🇯🇵 日本特化 (3問)</span>
               <span>💬 言語 (5問)</span>
               <span>🏛️ 建築 (3問)</span>
               <span>🛣️ 道路 (6問)</span>
