@@ -16,7 +16,7 @@ export default function DifficultySelector({ onStartGame }: DifficultySelectorPr
       description: '全難易度からランダム出題',
       color: 'from-purple-500 to-indigo-600',
       hoverColor: 'hover:from-purple-600 hover:to-indigo-700',
-      questions: '200問から出題'
+      questions: '243問から出題'
     },
     {
       level: 'easy' as DifficultyLevel,
@@ -24,7 +24,7 @@ export default function DifficultySelector({ onStartGame }: DifficultySelectorPr
       description: '有名な国・基本的な問題',
       color: 'from-green-500 to-emerald-600',
       hoverColor: 'hover:from-green-600 hover:to-emerald-700',
-      questions: '41問から出題'
+      questions: '50問から出題'
     },
     {
       level: 'medium' as DifficultyLevel,
@@ -32,7 +32,7 @@ export default function DifficultySelector({ onStartGame }: DifficultySelectorPr
       description: '中程度の知識が必要',
       color: 'from-yellow-500 to-orange-600',
       hoverColor: 'hover:from-yellow-600 hover:to-orange-700',
-      questions: '53問から出題'
+      questions: '82問から出題'
     },
     {
       level: 'hard' as DifficultyLevel,
@@ -40,7 +40,7 @@ export default function DifficultySelector({ onStartGame }: DifficultySelectorPr
       description: '専門的な知識が必要',
       color: 'from-red-500 to-pink-600',
       hoverColor: 'hover:from-red-600 hover:to-pink-700',
-      questions: '83問から出題'
+      questions: '111問から出題'
     }
   ];
 
@@ -104,22 +104,22 @@ export default function DifficultySelector({ onStartGame }: DifficultySelectorPr
           <div className="text-sm text-blue-800">
             <p className="font-medium mb-1">📊 問題内容</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs">
-              <span>🏁 国旗 (100問)</span>
+              <span>🏁 国旗 (124問)</span>
               <span>📞 電話番号 (50問)</span>
+              <span>💬 言語 (20問)</span>
+              <span>🛣️ 道路 (7問)</span>
+              <span>🌲 自然 (6問)</span>
+              <span>⚡ インフラ (5問)</span>
+              <span>🏛️ 建築 (4問)</span>
+              <span>🏪 企業 (4問)</span>
               <span>🌍 半球判定 (3問)</span>
               <span>🗺️ カバレッジ (3問)</span>
-              <span>🚗 車メタ (2問)</span>
               <span>🛡️ ボラード (3問)</span>
               <span>🚦 標識メタ (3問)</span>
               <span>📝 文字・言語 (3問)</span>
               <span>🤓 上級メタ (3問)</span>
               <span>🇯🇵 日本特化 (3問)</span>
-              <span>💬 言語 (5問)</span>
-              <span>🏛️ 建築 (3問)</span>
-              <span>🛣️ 道路 (6問)</span>
-              <span>⚡ インフラ (5問)</span>
-              <span>🌲 自然 (5問)</span>
-              <span>🏪 企業 (3問)</span>
+              <span>🚗 車メタ (2問)</span>
             </div>
           </div>
         </div>
