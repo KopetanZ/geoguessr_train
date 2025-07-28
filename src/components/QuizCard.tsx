@@ -41,6 +41,10 @@ export default function QuizCard({
       case 'script': return '📝';
       case 'advanced-meta': return '🤓';
       case 'japan-specific': return '🇯🇵';
+      case 'currency': return '💰';
+      case 'timezone': return '🕐';
+      case 'climate': return '🌡️';
+      case 'food': return '🍜';
       default: return '❓';
     }
   };
@@ -63,6 +67,10 @@ export default function QuizCard({
       case 'script': return '文字・言語';
       case 'advanced-meta': return '上級メタ';
       case 'japan-specific': return '日本特化';
+      case 'currency': return '通貨';
+      case 'timezone': return '時差';
+      case 'climate': return '気候';
+      case 'food': return '料理';
       default: return 'その他';
     }
   };

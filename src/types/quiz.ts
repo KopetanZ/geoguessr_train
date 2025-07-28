@@ -3,7 +3,7 @@ export type GameMode = 'normal' | 'timeattack' | 'endless';
 
 export interface QuizQuestion {
   id: string;
-  category: 'flag' | 'language' | 'phone' | 'architecture' | 'road' | 'infrastructure' | 'nature' | 'business' | 'hemisphere' | 'coverage' | 'car-meta' | 'bollard' | 'sign-meta' | 'script' | 'advanced-meta' | 'japan-specific';
+  category: 'flag' | 'language' | 'phone' | 'architecture' | 'road' | 'infrastructure' | 'nature' | 'business' | 'hemisphere' | 'coverage' | 'car-meta' | 'bollard' | 'sign-meta' | 'script' | 'advanced-meta' | 'japan-specific' | 'currency' | 'timezone' | 'climate' | 'food';
   difficulty: DifficultyLevel;
   question: string;
   answer: string;

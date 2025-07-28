@@ -712,7 +712,7 @@ export const quizQuestions: QuizQuestion[] = [
     difficulty: 'medium',
     question: 'この国旗はどの国のものですか？',
     answer: 'インドネシア',
-    options: ['インドネシア', 'ポーランド', 'モナコ', 'シンガポール'],
+    options: ['インドネシア', 'ポーランド', 'タイ', 'シンガポール'],
     explanation: '赤と白の二色旗のインドネシア国旗です。',
     funFact: '赤は勇気を、白は純潔を表しています。',
     imageUrl: 'flag',
@@ -2899,6 +2899,855 @@ export const quizQuestions: QuizQuestion[] = [
     explanation: '赤い郵便ポストはイギリス（英国）の象徴的なインフラです。',
     funFact: 'イギリスの赤いポストは1874年から使用されており、現在も約11万5千個が設置されています。',
     imageUrl: 'image:mailbox-red'
+  },
+
+  // 通貨問題 - 簡単レベル
+  {
+    id: '107',
+    category: 'currency',
+    difficulty: 'easy',
+    question: 'アメリカの通貨単位は何ですか？',
+    answer: 'ドル（USD）',
+    options: ['ドル（USD）', 'ユーロ（EUR）', 'ポンド（GBP）', 'ペソ（MXN）'],
+    explanation: 'アメリカの通貨はアメリカドル（USD）です。',
+    funFact: 'アメリカドルは世界の基軸通貨として、国際取引の約60%で使用されています。',
+    imageUrl: '💵'
+  },
+  {
+    id: '108',
+    category: 'currency',
+    difficulty: 'easy',
+    question: 'イギリスの通貨単位は何ですか？',
+    answer: 'ポンド（GBP）',
+    options: ['ポンド（GBP）', 'ユーロ（EUR）', 'ドル（USD）', 'クローナ（SEK）'],
+    explanation: 'イギリスの通貨はポンド・スターリング（GBP）です。',
+    funFact: 'ポンドは世界最古の通貨の一つで、1200年以上の歴史があります。',
+    imageUrl: '💷'
+  },
+  {
+    id: '109',
+    category: 'currency',
+    difficulty: 'easy',
+    question: '日本の通貨単位は何ですか？',
+    answer: '円（JPY）',
+    options: ['円（JPY）', 'ウォン（KRW）', '元（CNY）', 'ドル（USD）'],
+    explanation: '日本の通貨は円（JPY）です。',
+    funFact: '日本円は世界で3番目に取引量の多い通貨で、安全通貨として知られています。',
+    imageUrl: '💴'
+  },
+  {
+    id: '110',
+    category: 'currency',
+    difficulty: 'easy',
+    question: 'ユーロ（EUR）を使用している国はどれですか？',
+    answer: 'ドイツ',
+    options: ['ドイツ', 'イギリス', 'スイス', 'ノルウェー'],
+    explanation: 'ドイツはユーロ圏の加盟国で、ユーロを使用しています。',
+    funFact: 'ユーロは19カ国で使用されており、約3億4千万人が日常的に使用しています。',
+    imageUrl: '💶'
+  },
+  {
+    id: '111',
+    category: 'currency',
+    difficulty: 'easy',
+    question: '韓国の通貨単位は何ですか？',
+    answer: 'ウォン（KRW）',
+    options: ['ウォン（KRW）', '円（JPY）', '元（CNY）', 'ドル（USD）'],
+    explanation: '韓国の通貨は韓国ウォン（KRW）です。',
+    funFact: '韓国ウォンの最高額紙幣は50,000ウォン札で、申師任堂の肖像が描かれています。',
+    imageUrl: '💸'
+  },
+
+  // 通貨問題 - 中級レベル
+  {
+    id: '112',
+    category: 'currency',
+    difficulty: 'medium',
+    question: 'スイスの通貨単位は何ですか？',
+    answer: 'フラン（CHF）',
+    options: ['フラン（CHF）', 'ユーロ（EUR）', 'クローナ（SEK）', 'ポンド（GBP）'],
+    explanation: 'スイスの通貨はスイスフラン（CHF）です。',
+    funFact: 'スイスフランは世界で最も安定した通貨の一つとされ、安全資産として人気です。',
+    imageUrl: '💰'
+  },
+  {
+    id: '113',
+    category: 'currency',
+    difficulty: 'medium',
+    question: 'カナダの通貨単位は何ですか？',
+    answer: 'ドル（CAD）',
+    options: ['ドル（CAD）', 'ドル（USD）', 'ペソ（MXN）', 'ポンド（GBP）'],
+    explanation: 'カナダの通貨はカナダドル（CAD）です。',
+    funFact: 'カナダドルは世界で5番目に準備通貨として保有されている通貨です。',
+    imageUrl: '💵'
+  },
+  {
+    id: '114',
+    category: 'currency',
+    difficulty: 'medium',
+    question: 'オーストラリアの通貨単位は何ですか？',
+    answer: 'ドル（AUD）',
+    options: ['ドル（AUD）', 'ポンド（GBP）', 'ドル（USD）', 'ドル（NZD）'],
+    explanation: 'オーストラリアの通貨はオーストラリアドル（AUD）です。',
+    funFact: 'オーストラリアドルは1988年に世界初のプラスチック製紙幣を導入しました。',
+    imageUrl: '💵'
+  },
+  {
+    id: '115',
+    category: 'currency',
+    difficulty: 'medium',
+    question: 'インドの通貨単位は何ですか？',
+    answer: 'ルピー（INR）',
+    options: ['ルピー（INR）', 'ドル（USD）', 'ポンド（GBP）', 'バーツ（THB）'],
+    explanation: 'インドの通貨はインドルピー（INR）です。',
+    funFact: 'ルピーという名前はサンスクリット語の「銀」を意味する「ルーパ」に由来します。',
+    imageUrl: '💰'
+  },
+  {
+    id: '116',
+    category: 'currency',
+    difficulty: 'medium',
+    question: 'ブラジルの通貨単位は何ですか？',
+    answer: 'レアル（BRL）',
+    options: ['レアル（BRL）', 'ペソ（ARS）', 'ドル（USD）', 'ボリバル（VES）'],
+    explanation: 'ブラジルの通貨はブラジルレアル（BRL）です。',
+    funFact: 'レアルは1994年に導入され、ハイパーインフレを終息させた通貨改革の成功例です。',
+    imageUrl: '💸'
+  },
+
+  // 通貨問題 - 上級レベル
+  {
+    id: '117',
+    category: 'currency',
+    difficulty: 'hard',
+    question: 'ノルウェーの通貨単位は何ですか？',
+    answer: 'クローネ（NOK）',
+    options: ['クローネ（NOK）', 'クローナ（SEK）', 'クローナ（DKK）', 'ユーロ（EUR）'],
+    explanation: 'ノルウェーの通貨はノルウェークローネ（NOK）です。',
+    funFact: 'ノルウェーは欧州連合に加盟していないため、ユーロではなく独自通貨を維持しています。',
+    imageUrl: '💰'
+  },
+  {
+    id: '118',
+    category: 'currency',
+    difficulty: 'hard',
+    question: 'タイの通貨単位は何ですか？',
+    answer: 'バーツ（THB）',
+    options: ['バーツ（THB）', 'リンギット（MYR）', 'ルピア（IDR）', 'ドン（VND）'],
+    explanation: 'タイの通貨はタイバーツ（THB）です。',
+    funFact: 'バーツは元々重量の単位で、15グラムの銀の価値に相当していました。',
+    imageUrl: '💸'
+  },
+  {
+    id: '119',
+    category: 'currency',
+    difficulty: 'hard',
+    question: '南アフリカの通貨単位は何ですか？',
+    answer: 'ランド（ZAR）',
+    options: ['ランド（ZAR）', 'ポンド（GBP）', 'ドル（USD）', 'セディ（GHS）'],
+    explanation: '南アフリカの通貨は南アフリカランド（ZAR）です。',
+    funFact: 'ランドの名前は金鉱で有名なヨハネスブルクの「ウィットウォーターズランド」に由来します。',
+    imageUrl: '💰'
+  },
+  {
+    id: '120',
+    category: 'currency',
+    difficulty: 'hard',
+    question: 'イスラエルの通貨単位は何ですか？',
+    answer: 'シェケル（ILS）',
+    options: ['シェケル（ILS）', 'ディナール（JOD）', 'ポンド（LBP）', 'ドル（USD）'],
+    explanation: 'イスラエルの通貨は新イスラエルシェケル（ILS）です。',
+    funFact: 'シェケルは古代から使用されていた重量・通貨単位で、聖書にも登場します。',
+    imageUrl: '💷'
+  },
+  {
+    id: '121',
+    category: 'currency',
+    difficulty: 'hard',
+    question: 'アルゼンチンの通貨単位は何ですか？',
+    answer: 'ペソ（ARS）',
+    options: ['ペソ（ARS）', 'レアル（BRL）', 'ドル（USD）', 'ボリバル（VES）'],
+    explanation: 'アルゼンチンの通貨はアルゼンチンペソ（ARS）です。',
+    funFact: 'アルゼンチンは過去に何度も通貨危機を経験し、通貨の呼び名も複数回変更されています。',
+    imageUrl: '💸'
+  },
+
+  // 時差問題 - 簡単レベル
+  {
+    id: '122',
+    category: 'timezone',
+    difficulty: 'easy',
+    question: '日本標準時（JST）から見て、ニューヨーク（EST）は何時間遅れていますか？',
+    answer: '14時間遅れ',
+    options: ['14時間遅れ', '8時間遅れ', '12時間遅れ', '16時間遅れ'],
+    explanation: '日本標準時（UTC+9）からニューヨーク東部標準時（UTC-5）は14時間遅れです。',
+    funFact: 'サマータイム期間中は13時間差になります。',
+    imageUrl: '🌅'
+  },
+  {
+    id: '123',
+    category: 'timezone',
+    difficulty: 'easy',
+    question: 'イギリス（GMT）と日本（JST）の時差は何時間ですか？',
+    answer: '9時間',
+    options: ['9時間', '8時間', '10時間', '7時間'],
+    explanation: 'イギリスのGMT（UTC+0）と日本のJST（UTC+9）は9時間差です。',
+    funFact: 'グリニッジ標準時（GMT）は世界の基準時間として使用されています。',
+    imageUrl: '🕘'
+  },
+  {
+    id: '124',
+    category: 'timezone',
+    difficulty: 'easy',
+    question: 'オーストラリア東部（シドニー）は日本より何時間進んでいますか？',
+    answer: '1時間進んでいる',
+    options: ['1時間進んでいる', '2時間進んでいる', '同じ時間', '1時間遅れている'],
+    explanation: 'シドニーのAEST（UTC+10）は日本のJST（UTC+9）より1時間進んでいます。',
+    funFact: 'オーストラリアには3つの主要なタイムゾーンがあります。',
+    imageUrl: '🌏'
+  },
+  {
+    id: '125',
+    category: 'timezone',
+    difficulty: 'easy',
+    question: '韓国の標準時は日本と同じですか？',
+    answer: '同じ',
+    options: ['同じ', '1時間遅れ', '1時間進んでいる', '30分遅れ'],
+    explanation: '韓国標準時（KST）と日本標準時（JST）は両方ともUTC+9で同じです。',
+    funFact: '韓国と日本は同じ経度帯にあるため、同じ標準時を使用しています。',
+    imageUrl: '🕘'
+  },
+  {
+    id: '126',
+    category: 'timezone',
+    difficulty: 'easy',
+    question: 'ハワイは日本より何時間遅れていますか？',
+    answer: '19時間遅れ',
+    options: ['19時間遅れ', '15時間遅れ', '17時間遅れ', '21時間遅れ'],
+    explanation: 'ハワイ標準時（HST、UTC-10）は日本標準時（UTC+9）より19時間遅れです。',
+    funFact: 'ハワイは米国で唯一サマータイムを採用していない州です。',
+    imageUrl: '🌺'
+  },
+
+  // 時差問題 - 中級レベル
+  {
+    id: '127',
+    category: 'timezone',
+    difficulty: 'medium',
+    question: 'インド標準時（IST）は日本より何時間遅れていますか？',
+    answer: '3時間30分遅れ',
+    options: ['3時間30分遅れ', '4時間遅れ', '3時間遅れ', '5時間遅れ'],
+    explanation: 'インド標準時（UTC+5:30）は日本標準時（UTC+9）より3時間30分遅れです。',
+    funFact: 'インドは広大な国土を持ちながら、全土で単一のタイムゾーンを使用しています。',
+    imageUrl: '🇮🇳'
+  },
+  {
+    id: '128',
+    category: 'timezone',
+    difficulty: 'medium',
+    question: 'ドイツ（CET）は日本より何時間遅れていますか？',
+    answer: '8時間遅れ',
+    options: ['8時間遅れ', '7時間遅れ', '9時間遅れ', '6時間遅れ'],
+    explanation: '中央ヨーロッパ標準時（CET、UTC+1）は日本標準時（UTC+9）より8時間遅れです。',
+    funFact: 'ヨーロッパの多くの国が中央ヨーロッパ標準時を使用しています。',
+    imageUrl: '🇪🇺'
+  },
+  {
+    id: '129',
+    category: 'timezone',
+    difficulty: 'medium',
+    question: 'ブラジル（サンパウロ）は日本より何時間遅れていますか？',
+    answer: '12時間遅れ',
+    options: ['12時間遅れ', '11時間遅れ', '13時間遅れ', '10時間遅れ'],
+    explanation: 'ブラジル標準時（BRT、UTC-3）は日本標準時（UTC+9）より12時間遅れです。',
+    funFact: 'ブラジルは国土が広いため、4つのタイムゾーンに分かれています。',
+    imageUrl: '🇧🇷'
+  },
+  {
+    id: '130',
+    category: 'timezone',
+    difficulty: 'medium',
+    question: 'アラスカ標準時（AKST）は日本より何時間遅れていますか？',
+    answer: '18時間遅れ',
+    options: ['18時間遅れ', '17時間遅れ', '19時間遅れ', '16時間遅れ'],
+    explanation: 'アラスカ標準時（AKST、UTC-9）は日本標準時（UTC+9）より18時間遅れです。',
+    funFact: 'アラスカは1867年にロシアからアメリカに売却された歴史があります。',
+    imageUrl: '🐻'
+  },
+  {
+    id: '131',
+    category: 'timezone',
+    difficulty: 'medium',
+    question: 'エジプト（カイロ）は日本より何時間遅れていますか？',
+    answer: '7時間遅れ',
+    options: ['7時間遅れ', '6時間遅れ', '8時間遅れ', '5時間遅れ'],
+    explanation: 'エジプト標準時（EET、UTC+2）は日本標準時（UTC+9）より7時間遅れです。',
+    funFact: 'エジプトは2016年からサマータイムを廃止しています。',
+    imageUrl: '🏺'
+  },
+
+  // 時差問題 - 上級レベル
+  {
+    id: '132',
+    category: 'timezone',
+    difficulty: 'hard',
+    question: 'ネパール標準時（NPT）は日本より何時間遅れていますか？',
+    answer: '3時間15分遅れ',
+    options: ['3時間15分遅れ', '3時間30分遅れ', '3時間遅れ', '4時間遅れ'],
+    explanation: 'ネパール標準時（UTC+5:45）は日本標準時（UTC+9）より3時間15分遅れです。',
+    funFact: 'ネパールは世界で唯一15分単位のタイムゾーンを持つ国です。',
+    imageUrl: '🏔️'
+  },
+  {
+    id: '133',
+    category: 'timezone',
+    difficulty: 'hard',
+    question: 'サモア独立国の標準時は日本より何時間進んでいますか？',
+    answer: '4時間進んでいる',
+    options: ['4時間進んでいる', '3時間進んでいる', '5時間進んでいる', '2時間進んでいる'],
+    explanation: 'サモア標準時（SST、UTC+13）は日本標準時（UTC+9）より4時間進んでいます。',
+    funFact: 'サモアは2011年に日付変更線を越えて、UTC-11からUTC+13に変更しました。',
+    imageUrl: '🏝️'
+  },
+  {
+    id: '134',
+    category: 'timezone',
+    difficulty: 'hard',
+    question: 'アフガニスタン標準時（AFT）は日本より何時間遅れていますか？',
+    answer: '4時間30分遅れ',
+    options: ['4時間30分遅れ', '4時間遅れ', '5時間遅れ', '3時間30分遅れ'],
+    explanation: 'アフガニスタン標準時（UTC+4:30）は日本標準時（UTC+9）より4時間30分遅れです。',
+    funFact: 'アフガニスタンは30分単位のタイムゾーンを持つ数少ない国の一つです。',
+    imageUrl: '🏜️'
+  },
+  {
+    id: '135',
+    category: 'timezone',
+    difficulty: 'hard',
+    question: 'チャタム諸島（ニュージーランド）の標準時は日本より何時間進んでいますか？',
+    answer: '4時間45分進んでいる',
+    options: ['4時間45分進んでいる', '4時間30分進んでいる', '5時間進んでいる', '4時間進んでいる'],
+    explanation: 'チャタム標準時（CHAST、UTC+12:45）は日本標準時（UTC+9）より3時間45分進んでいます。',
+    funFact: 'チャタム諸島は世界で唯一45分単位のタイムゾーンを持つ地域です。',
+    imageUrl: '🐧'
+  },
+  {
+    id: '136',
+    category: 'timezone',
+    difficulty: 'hard',
+    question: 'ベネズエラ標準時（VET）は日本より何時間遅れていますか？',
+    answer: '13時間30分遅れ',
+    options: ['13時間30分遅れ', '13時間遅れ', '14時間遅れ', '12時間30分遅れ'],
+    explanation: 'ベネズエラ標準時（UTC-4:30）は日本標準時（UTC+9）より13時間30分遅れです。',
+    funFact: 'ベネズエラは2007年に独自のタイムゾーンUTC-4:30を採用しました。',
+    imageUrl: '🌎'
+  },
+
+  // 気候問題 - 簡単レベル
+  {
+    id: '137',
+    category: 'climate',
+    difficulty: 'easy',
+    question: '一年中暖かく、雨季と乾季がはっきり分かれている気候はどれですか？',
+    answer: '熱帯気候',
+    options: ['熱帯気候', '温帯気候', '寒帯気候', '乾燥気候'],
+    explanation: '熱帯気候は年間を通して気温が高く、雨季と乾季が明確に分かれています。',
+    funFact: '熱帯雨林は地球の酸素の約20%を生産しています。',
+    imageUrl: '🌴'
+  },
+  {
+    id: '138',
+    category: 'climate',
+    difficulty: 'easy',
+    question: '四季がはっきりしており、夏は暖かく冬は寒い気候はどれですか？',
+    answer: '温帯気候',
+    options: ['温帯気候', '熱帯気候', '寒帯気候', '亜寒帯気候'],
+    explanation: '温帯気候は四季の変化が明確で、人間の居住に適した気候です。',
+    funFact: '世界人口の約70%が温帯地域に住んでいます。',
+    imageUrl: '🍂'
+  },
+  {
+    id: '139',
+    category: 'climate',
+    difficulty: 'easy',
+    question: '年間降水量が非常に少なく、昼夜の気温差が大きい気候はどれですか？',
+    answer: '乾燥気候',
+    options: ['乾燥気候', '温帯気候', '熱帯気候', '寒帯気候'],
+    explanation: '乾燥気候は降水量が少なく、砂漠地帯に見られる気候です。',
+    funFact: '世界最大の砂漠サハラ砂漠は、アフリカ大陸の約3分の1を占めています。',
+    imageUrl: '🌵'
+  },
+  {
+    id: '140',
+    category: 'climate',
+    difficulty: 'easy',
+    question: '夏が短く冬が長い、針葉樹林が広がる地域の気候はどれですか？',
+    answer: '亜寒帯気候',
+    options: ['亜寒帯気候', '寒帯気候', '温帯気候', '高山気候'],
+    explanation: '亜寒帯気候はタイガと呼ばれる針葉樹林が特徴的な気候帯です。',
+    funFact: 'シベリアやカナダ北部の広大な針葉樹林は「地球の肺」とも呼ばれます。',
+    imageUrl: '🌲'
+  },
+  {
+    id: '141',
+    category: 'climate',
+    difficulty: 'easy',
+    question: '一年中氷雪に覆われ、樹木が育たない気候はどれですか？',
+    answer: '寒帯気候',
+    options: ['寒帯気候', '亜寒帯気候', '高山気候', '極地気候'],
+    explanation: '寒帯気候は永久凍土が広がり、樹木限界を超えた極寒の気候です。',
+    funFact: '北極圏の永久凍土には大量の二酸化炭素が貯蔵されています。',
+    imageUrl: '🧊'
+  },
+
+  // 気候問題 - 中級レベル
+  {
+    id: '142',
+    category: 'climate',
+    difficulty: 'medium',
+    question: '地中海沿岸に見られる、夏は乾燥し冬は温暖湿潤な気候は何ですか？',
+    answer: '地中海性気候',
+    options: ['地中海性気候', '西岸海洋性気候', '温帯湿潤気候', '亜熱帯気候'],
+    explanation: '地中海性気候は夏の乾燥と冬の湿潤が特徴的な気候です。',
+    funFact: 'オリーブやブドウなどの地中海性植物がこの気候に適応しています。',
+    imageUrl: '🫒'
+  },
+  {
+    id: '143',
+    category: 'climate',
+    difficulty: 'medium',
+    question: 'モンスーンの影響を受け、明確な雨季と乾季がある熱帯気候は何ですか？',
+    answer: 'サバナ気候',
+    options: ['サバナ気候', '熱帯雨林気候', 'ステップ気候', '亜熱帯気候'],
+    explanation: 'サバナ気候はモンスーンにより雨季と乾季が明確に分かれます。',
+    funFact: 'アフリカのサバナには多様な野生動物が生息しています。',
+    imageUrl: '🦁'
+  },
+  {
+    id: '144',
+    category: 'climate',
+    difficulty: 'medium',
+    question: '年間を通して高温多雨で、熱帯雨林が発達する気候は何ですか？',
+    answer: '熱帯雨林気候',
+    options: ['熱帯雨林気候', 'サバナ気候', '温帯湿潤気候', 'モンスーン気候'],
+    explanation: '熱帯雨林気候は年中高温多湿で豊かな生態系を育みます。',
+    funFact: 'アマゾン熱帯雨林には地球上の生物種の約10%が生息しています。',
+    imageUrl: '🌺'
+  },
+  {
+    id: '145',
+    category: 'climate',
+    difficulty: 'medium',
+    question: 'ヨーロッパ西部に見られる、海洋の影響で温暖な気候は何ですか？',
+    answer: '西岸海洋性気候',
+    options: ['西岸海洋性気候', '地中海性気候', '大陸性気候', '温帯湿潤気候'],
+    explanation: '西岸海洋性気候は海洋の調節作用により温暖で湿潤です。',
+    funFact: 'イギリスやアイルランドがこの気候の典型例です。',
+    imageUrl: '🌊'
+  },
+  {
+    id: '146',
+    category: 'climate',
+    difficulty: 'medium',
+    question: '内陸部で見られる、夏暑く冬寒い、昼夜の気温差が大きい気候は何ですか？',
+    answer: '大陸性気候',
+    options: ['大陸性気候', '海洋性気候', '温帯湿潤気候', 'ステップ気候'],
+    explanation: '大陸性気候は海洋の調節作用が少なく、気温の年較差・日較差が大きいです。',
+    funFact: 'シベリアでは年間気温差が80度を超える地域もあります。',
+    imageUrl: '🏔️'
+  },
+
+  // 気候問題 - 上級レベル
+  {
+    id: '147',
+    category: 'climate',
+    difficulty: 'hard',
+    question: 'ケッペンの気候区分で「Cfa」は何気候を表しますか？',
+    answer: '温帯湿潤気候',
+    options: ['温帯湿潤気候', '地中海性気候', '西岸海洋性気候', '亜熱帯気候'],
+    explanation: 'Cfaは温帯（C）・湿潤（f）・暖夏（a）を表す温帯湿潤気候です。',
+    funFact: '日本の大部分がこのCfa気候に分類されます。',
+    imageUrl: '🌸'
+  },
+  {
+    id: '148',
+    category: 'climate',
+    difficulty: 'hard',
+    question: 'エルニーニョ現象が発生すると、ペルー沖の海水温はどうなりますか？',
+    answer: '上昇する',
+    options: ['上昇する', '下降する', '変化しない', '不規則に変動する'],
+    explanation: 'エルニーニョ現象時は、ペルー沖の海水温が平年より上昇します。',
+    funFact: 'エルニーニョ現象は世界中の気候に影響を与える大規模な現象です。',
+    imageUrl: '🌊'
+  },
+  {
+    id: '149',
+    category: 'climate',
+    difficulty: 'hard',
+    question: 'フェーン現象が起こると、山の風下側では何が起こりますか？',
+    answer: '気温が上昇し乾燥する',
+    options: ['気温が上昇し乾燥する', '気温が下降し湿潤になる', '気温は変わらず湿潤になる', '気温は変わらず乾燥する'],
+    explanation: 'フェーン現象により、風下側では高温乾燥の空気が降りてきます。',
+    funFact: '日本では春先に日本海側でフェーン現象がよく観測されます。',
+    imageUrl: '⛰️'
+  },
+  {
+    id: '150',
+    category: 'climate',
+    difficulty: 'hard',
+    question: '北大西洋海流（メキシコ湾流）が弱くなると、ヨーロッパの気候はどうなりますか？',
+    answer: '寒冷化する',
+    options: ['寒冷化する', '温暖化する', '乾燥化する', '多雨になる'],
+    explanation: '北大西洋海流が弱くなると、ヨーロッパへの暖流の供給が減り寒冷化します。',
+    funFact: 'この海流のおかげで、ヨーロッパは緯度の割に温暖な気候を保っています。',
+    imageUrl: '🌀'
+  },
+  {
+    id: '151',
+    category: 'climate',
+    difficulty: 'hard',
+    question: 'モンスーンの語源となった言語はどれですか？',
+    answer: 'アラビア語',
+    options: ['アラビア語', 'サンスクリット語', 'ヒンディー語', 'ペルシア語'],
+    explanation: 'モンスーンはアラビア語の「季節」を意味する「mawsim」が語源です。',
+    funFact: 'モンスーンは季節風とも呼ばれ、アジアの農業に大きな影響を与えます。',
+    imageUrl: '💨'
+  },
+
+  // 料理問題 - 簡単レベル
+  {
+    id: '152',
+    category: 'food',
+    difficulty: 'easy',
+    question: 'パスタとピザが有名な国はどこですか？',
+    answer: 'イタリア',
+    options: ['イタリア', 'フランス', 'スペイン', 'ギリシャ'],
+    explanation: 'パスタとピザはイタリア発祥の代表的な料理です。',
+    funFact: 'イタリアには300種類以上のパスタの形があると言われています。',
+    imageUrl: '🍝'
+  },
+  {
+    id: '153',
+    category: 'food',
+    difficulty: 'easy',
+    question: '寿司と刺身が伝統的な料理の国はどこですか？',
+    answer: '日本',
+    options: ['日本', '韓国', '中国', 'タイ'],
+    explanation: '寿司と刺身は日本の代表的な伝統料理です。',
+    funFact: '寿司は元々魚を保存する方法として発達しました。',
+    imageUrl: '🍣'
+  },
+  {
+    id: '154',
+    category: 'food',
+    difficulty: 'easy',
+    question: 'タコスとナチョスが有名な国はどこですか？',
+    answer: 'メキシコ',
+    options: ['メキシコ', 'アルゼンチン', 'スペイン', 'ペルー'],
+    explanation: 'タコスとナチョスはメキシコの代表的な料理です。',
+    funFact: 'トウモロコシはメキシコ発祥で、多くのメキシコ料理の基本食材です。',
+    imageUrl: '🌮'
+  },
+  {
+    id: '155',
+    category: 'food',
+    difficulty: 'easy',
+    question: 'フィッシュアンドチップスが伝統料理の国はどこですか？',
+    answer: 'イギリス',
+    options: ['イギリス', 'アイルランド', 'ノルウェー', 'デンマーク'],
+    explanation: 'フィッシュアンドチップスはイギリスの代表的な料理です。',
+    funFact: 'フィッシュアンドチップスは19世紀にイギリスで誕生しました。',
+    imageUrl: '🍟'
+  },
+  {
+    id: '156',
+    category: 'food',
+    difficulty: 'easy',
+    question: 'カレーが日常的に食べられている国はどこですか？',
+    answer: 'インド',
+    options: ['インド', 'タイ', 'インドネシア', 'バングラデシュ'],
+    explanation: 'カレーはインド発祥で、インドの代表的な料理です。',
+    funFact: 'インドには数千種類のカレーのレシピがあります。',
+    imageUrl: '🍛'
+  },
+  {
+    id: '157',
+    category: 'food',
+    difficulty: 'easy',
+    question: 'ハンバーガーとホットドッグが生まれた国はどこですか？',
+    answer: 'アメリカ',
+    options: ['アメリカ', 'ドイツ', 'イギリス', 'カナダ'],
+    explanation: 'ハンバーガーとホットドッグは現在の形でアメリカで普及しました。',
+    funFact: 'ハンバーガーの名前はドイツのハンブルク由来ですが、現在の形はアメリカで発展しました。',
+    imageUrl: '🍔'
+  },
+  {
+    id: '158',
+    category: 'food',
+    difficulty: 'easy',
+    question: 'キムチが代表的な発酵食品の国はどこですか？',
+    answer: '韓国',
+    options: ['韓国', '日本', '中国', '北朝鮮'],
+    explanation: 'キムチは韓国の代表的な発酵食品です。',
+    funFact: 'キムチには200種類以上の種類があります。',
+    imageUrl: '🥬'
+  },
+  {
+    id: '159',
+    category: 'food',
+    difficulty: 'easy',
+    question: 'ボルシチが代表的なスープの国はどこですか？',
+    answer: 'ロシア',
+    options: ['ロシア', 'ウクライナ', 'ポーランド', 'ベラルーシ'],
+    explanation: 'ボルシチは東欧で親しまれているビーツを使ったスープです。',
+    funFact: 'ボルシチの赤い色はビーツ（赤かぶ）によるものです。',
+    imageUrl: '🍲'
+  },
+
+  // 料理問題 - 中級レベル
+  {
+    id: '160',
+    category: 'food',
+    difficulty: 'medium',
+    question: 'パエリアが代表的な米料理の国はどこですか？',
+    answer: 'スペイン',
+    options: ['スペイン', 'イタリア', 'フランス', 'ポルトガル'],
+    explanation: 'パエリアはスペインのバレンシア地方発祥の米料理です。',
+    funFact: '本場のパエリアには元々シーフードではなく、鶏肉とウサギ肉が使われていました。',
+    imageUrl: '🥘'
+  },
+  {
+    id: '161',
+    category: 'food',
+    difficulty: 'medium',
+    question: 'フォーが代表的な麺料理の国はどこですか？',
+    answer: 'ベトナム',
+    options: ['ベトナム', 'タイ', 'ラオス', 'カンボジア'],
+    explanation: 'フォーはベトナムの代表的な米麺スープです。',
+    funFact: 'フォーは20世紀初頭にベトナム北部で誕生しました。',
+    imageUrl: '🍜'
+  },
+  {
+    id: '162',
+    category: 'food',
+    difficulty: 'medium',
+    question: 'ムサカが代表的な家庭料理の国はどこですか？',
+    answer: 'ギリシャ',
+    options: ['ギリシャ', 'トルコ', 'ブルガリア', 'イタリア'],
+    explanation: 'ムサカはナスとひき肉を重ねて焼いたギリシャの代表的な料理です。',
+    funFact: 'ムサカにはベシャメルソースが欠かせない要素です。',
+    imageUrl: '🍆'
+  },
+  {
+    id: '163',
+    category: 'food',
+    difficulty: 'medium',
+    question: 'セビーチェが代表的な魚料理の国はどこですか？',
+    answer: 'ペルー',
+    options: ['ペルー', 'エクアドル', 'コロンビア', 'チリ'],
+    explanation: 'セビーチェは生魚をライムで"調理"するペルーの代表的な料理です。',
+    funFact: 'セビーチェは柑橘類の酸で魚のタンパク質を変性させる調理法です。',
+    imageUrl: '🐟'
+  },
+  {
+    id: '164',
+    category: 'food',
+    difficulty: 'medium',
+    question: 'シュニッツェルが代表的な肉料理の国はどこですか？',
+    answer: 'オーストリア',
+    options: ['オーストリア', 'ドイツ', 'スイス', 'チェコ'],
+    explanation: 'ウィーン風シュニッツェルはオーストリアの代表的な料理です。',
+    funFact: '本物のウィーン風シュニッツェルは仔牛肉でなければなりません。',
+    imageUrl: '🥩'
+  },
+  {
+    id: '165',
+    category: 'food',
+    difficulty: 'medium',
+    question: 'ファラフェルが代表的な豆料理の地域はどこですか？',
+    answer: '中東',
+    options: ['中東', '北アフリカ', '南アジア', '東南アジア'],
+    explanation: 'ファラフェルはひよこ豆を使った中東の代表的な料理です。',
+    funFact: 'ファラフェルは古代エジプト時代から存在していたとされています。',
+    imageUrl: '🧆'
+  },
+  {
+    id: '166',
+    category: 'food',
+    difficulty: 'medium',
+    question: 'ガンボが代表的なスープの地域はどこですか？',
+    answer: 'アメリカ南部',
+    options: ['アメリカ南部', 'メキシコ', 'カリブ海', 'ブラジル'],
+    explanation: 'ガンボはルイジアナ州を中心とするアメリカ南部の代表的なスープです。',
+    funFact: 'ガンボは西アフリカ、フランス、スペイン、ネイティブアメリカンの料理文化が融合した料理です。',
+    imageUrl: '🍲'
+  },
+  {
+    id: '167',
+    category: 'food',
+    difficulty: 'medium',
+    question: 'バクラヴァが代表的なデザートの地域はどこですか？',
+    answer: 'トルコ・中東',
+    options: ['トルコ・中東', 'インド', 'ロシア', 'ハンガリー'],
+    explanation: 'バクラヴァは薄いパイ生地を重ねて作るトルコ・中東の代表的なデザートです。',
+    funFact: 'バクラヴァには通常ピスタチオやクルミなどのナッツが使われます。',
+    imageUrl: '🥧'
+  },
+
+  // 料理問題 - 上級レベル
+  {
+    id: '168',
+    category: 'food',
+    difficulty: 'hard',
+    question: 'ハギスが伝統料理の国はどこですか？',
+    answer: 'スコットランド',
+    options: ['スコットランド', 'アイルランド', 'ウェールズ', 'イングランド'],
+    explanation: 'ハギスは羊の内臓を使ったスコットランドの伝統料理です。',
+    funFact: 'ハギスはスコットランドの詩人ロバート・バーンズによって詩に詠まれたことで有名になりました。',
+    imageUrl: '🏴󠁧󠁢󠁳󠁣󠁴󠁿'
+  },
+  {
+    id: '169',
+    category: 'food',
+    difficulty: 'hard',
+    question: 'ナットーが伝統的な発酵食品の国はどこですか？',
+    answer: '日本',
+    options: ['日本', '韓国', '中国', 'タイ'],
+    explanation: '納豆（ナットー）は日本の伝統的な大豆発酵食品です。',
+    funFact: '納豆は平安時代から食べられていたとされています。',
+    imageUrl: '🥢'
+  },
+  {
+    id: '170',
+    category: 'food',
+    difficulty: 'hard',
+    question: 'ラクサが代表的な麺料理の国はどこですか？',
+    answer: 'シンガポール・マレーシア',
+    options: ['シンガポール・マレーシア', 'インドネシア', 'タイ', 'フィリピン'],
+    explanation: 'ラクサはココナッツミルクベースのスープが特徴的な東南アジアの麺料理です。',
+    funFact: 'ラクサには地域によって大きく異なる多くのバリエーションがあります。',
+    imageUrl: '🍜'
+  },
+  {
+    id: '171',
+    category: 'food',
+    difficulty: 'hard',
+    question: 'ブリヤニが代表的な米料理の国はどこですか？',
+    answer: 'インド・パキスタン',
+    options: ['インド・パキスタン', 'バングラデシュ', 'スリランカ', 'アフガニスタン'],
+    explanation: 'ブリヤニは香辛料で味付けしたバスマティ米と肉を層状に重ねて炊いた料理です。',
+    funFact: 'ブリヤニはムガル帝国時代にペルシャから伝わったとされています。',
+    imageUrl: '🍚'
+  },
+  {
+    id: '172',
+    category: 'food',
+    difficulty: 'hard',
+    question: 'エスカルゴが伝統料理の国はどこですか？',
+    answer: 'フランス',
+    options: ['フランス', 'イタリア', 'スペイン', 'ベルギー'],
+    explanation: 'エスカルゴ（カタツムリ料理）はフランスの高級伝統料理です。',
+    funFact: 'エスカルゴは古代ローマ時代から食べられていましたが、現在の調理法はフランスで確立されました。',
+    imageUrl: '🐌'
+  },
+  {
+    id: '173',
+    category: 'food',
+    difficulty: 'hard',
+    question: 'マンディが代表的な米料理の地域はどこですか？',
+    answer: 'イエメン・アラビア半島',
+    options: ['イエメン・アラビア半島', 'レバノン', 'エジプト', 'モロッコ'],
+    explanation: 'マンディは肉と香辛料で炊き込んだイエメン発祥の米料理です。',
+    funFact: 'マンディは伝統的に地下のタンドール炉で調理されます。',
+    imageUrl: '🍽️'
+  },
+  {
+    id: '174',
+    category: 'food',
+    difficulty: 'hard',
+    question: 'チュラスコが代表的な肉料理の国はどこですか？',
+    answer: 'ブラジル',
+    options: ['ブラジル', 'アルゼンチン', 'ウルグアイ', 'パラグアイ'],
+    explanation: 'チュラスコは串焼き肉のブラジルの代表的な料理です。',
+    funFact: 'チュラスコは南ブラジルのガウチョ（カウボーイ）文化から生まれました。',
+    imageUrl: '🥩'
+  },
+  {
+    id: '175',
+    category: 'food',
+    difficulty: 'hard',
+    question: 'ドルマが代表的な詰め物料理の地域はどこですか？',
+    answer: 'トルコ・中東',
+    options: ['トルコ・中東', 'バルカン半島', 'コーカサス', '中央アジア'],
+    explanation: 'ドルマはブドウの葉や野菜に米や肉を詰めた中東・トルコの料理です。',
+    funFact: 'ドルマは「詰める」を意味するトルコ語「dolmak」が語源です。',
+    imageUrl: '🍃'
+  },
+  {
+    id: '176',
+    category: 'food',
+    difficulty: 'hard',
+    question: 'ポキが代表的な魚料理の地域はどこですか？',
+    answer: 'ハワイ',
+    options: ['ハワイ', 'カリフォルニア', 'フロリダ', 'オーストラリア'],
+    explanation: 'ポキは生魚を角切りにして調味料で和えたハワイの伝統料理です。',
+    funFact: 'ポキはハワイ語で「切る」「スライス」を意味します。',
+    imageUrl: '🐟'
+  },
+  {
+    id: '177',
+    category: 'food',
+    difficulty: 'hard',
+    question: 'バニュルス（満漢全席）が宮廷料理として発達した国はどこですか？',
+    answer: '中国',
+    options: ['中国', '日本', '韓国', 'ベトナム'],
+    explanation: '満漢全席は清朝時代の中国で発達した最高級の宮廷料理です。',
+    funFact: '満漢全席は108皿の料理からなる豪華絢爛なコース料理です。',
+    imageUrl: '🥟'
+  },
+  {
+    id: '178',
+    category: 'food',
+    difficulty: 'hard',
+    question: 'スルストロミングが伝統的な発酵魚の国はどこですか？',
+    answer: 'スウェーデン',
+    options: ['スウェーデン', 'ノルウェー', 'フィンランド', 'デンマーク'],
+    explanation: 'スルストロミングは発酵させたニシンのスウェーデンの伝統食品です。',
+    funFact: 'スルストロミングは世界で最も臭い食べ物の一つとされています。',
+    imageUrl: '🐟'
+  },
+  {
+    id: '179',
+    category: 'food',
+    difficulty: 'hard',
+    question: 'ガスパチョが代表的な冷製スープの国はどこですか？',
+    answer: 'スペイン',
+    options: ['スペイン', 'ポルトガル', 'イタリア', 'フランス'],
+    explanation: 'ガスパチョはトマトベースの冷製スープでスペイン・アンダルシア地方の名物です。',
+    funFact: 'ガスパチョは元々パンと水とオリーブオイルだけで作られていました。',
+    imageUrl: '🍅'
+  },
+  {
+    id: '180',
+    category: 'food',
+    difficulty: 'hard',
+    question: 'ツアムパが主食の国はどこですか？',
+    answer: 'チベット',
+    options: ['チベット', 'ネパール', 'ブータン', 'モンゴル'],
+    explanation: 'ツアムパ（チベット麦）はチベット高原の伝統的な主食です。',
+    funFact: 'ツアムパは大麦を炒って粉にしたもので、バター茶と混ぜて食べます。',
+    imageUrl: '🏔️'
+  },
+  {
+    id: '181',
+    category: 'food',
+    difficulty: 'hard',
+    question: 'インジェラが主食のパンの国はどこですか？',
+    answer: 'エチオピア',
+    options: ['エチオピア', 'エリトリア', 'ソマリア', 'スーダン'],
+    explanation: 'インジェラはテフという穀物で作るエチオピアの伝統的な発酵パンです。',
+    funFact: 'インジェラは食器としても使われ、その上に料理を盛って手で食べます。',
+    imageUrl: '🫓'
   }
 ];
 

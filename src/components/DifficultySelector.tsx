@@ -16,7 +16,7 @@ export default function DifficultySelector({ onStartGame }: DifficultySelectorPr
       description: '全難易度からランダム出題',
       color: 'from-purple-500 to-indigo-600',
       hoverColor: 'hover:from-purple-600 hover:to-indigo-700',
-      questions: '255問から出題'
+      questions: '330問から出題'
     },
     {
       level: 'easy' as DifficultyLevel,
@@ -24,7 +24,7 @@ export default function DifficultySelector({ onStartGame }: DifficultySelectorPr
       description: '有名な国・基本的な問題',
       color: 'from-green-500 to-emerald-600',
       hoverColor: 'hover:from-green-600 hover:to-emerald-700',
-      questions: '54問から出題'
+      questions: '77問から出題'
     },
     {
       level: 'medium' as DifficultyLevel,
@@ -32,7 +32,7 @@ export default function DifficultySelector({ onStartGame }: DifficultySelectorPr
       description: '中程度の知識が必要',
       color: 'from-yellow-500 to-orange-600',
       hoverColor: 'hover:from-yellow-600 hover:to-orange-700',
-      questions: '88問から出題'
+      questions: '111問から出題'
     },
     {
       level: 'hard' as DifficultyLevel,
@@ -40,7 +40,7 @@ export default function DifficultySelector({ onStartGame }: DifficultySelectorPr
       description: '専門的な知識が必要',
       color: 'from-red-500 to-pink-600',
       hoverColor: 'hover:from-red-600 hover:to-pink-700',
-      questions: '113問から出題'
+      questions: '142問から出題'
     }
   ];
 
@@ -106,11 +106,15 @@ export default function DifficultySelector({ onStartGame }: DifficultySelectorPr
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs">
               <span>🏁 国旗 (124問)</span>
               <span>📞 電話番号 (50問)</span>
+              <span>🍜 料理 (30問)</span>
               <span>💬 言語 (20問)</span>
-              <span>🛣️ 道路 (7問)</span>
-              <span>🌲 自然 (6問)</span>
-              <span>⚡ インフラ (5問)</span>
-              <span>🏛️ 建築 (4問)</span>
+              <span>💰 通貨 (15問)</span>
+              <span>🕐 時差 (15問)</span>
+              <span>🌡️ 気候 (15問)</span>
+              <span>🛣️ 道路 (10問)</span>
+              <span>🌲 自然 (9問)</span>
+              <span>⚡ インフラ (8問)</span>
+              <span>🏛️ 建築 (7問)</span>
               <span>🏪 企業 (4問)</span>
               <span>🌍 半球判定 (3問)</span>
               <span>🗺️ カバレッジ (3問)</span>
