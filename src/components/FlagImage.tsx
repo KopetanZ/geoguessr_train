@@ -36,7 +36,7 @@ export default function FlagImage({
   }
 
   const flagSources = getFlagImageSources(countryName, size);
-  const srcArray = [flagSources.flagcdn, flagSources.flagpedia, flagSources.fallback].filter(Boolean);
+  const srcArray = [flagSources.flagsapi, flagSources.flagcdn, flagSources.flagpedia, flagSources.fallback].filter(Boolean);
   const altText = alt || `${countryName}の国旗`;
 
   // エラー時のフォールバック表示

@@ -5,6 +5,11 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
+        hostname: 'flagsapi.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
         hostname: 'flagpedia.net',
         pathname: '/data/flags/**',
       },
