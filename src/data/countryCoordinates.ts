@@ -167,15 +167,14 @@ export const continentColors: { [key: string]: string } = {
   '中東': '#f97316',
 };
 
-// 座標から地図上の位置を計算（メルカトル図法）
+// 座標から地図上の位置を計算（簡易的な正距円筒図法）
 export function latLngToMapPosition(lat: number, lng: number, mapWidth: number, mapHeight: number) {
   // 経度：-180〜180を0〜mapWidthにマッピング
   const x = ((lng + 180) * mapWidth) / 360;
   
-  // 緯度：メルカトル図法で変換（-85〜85度の範囲）
-  const latRad = (lat * Math.PI) / 180;
-  const mercY = Math.log(Math.tan(Math.PI / 4 + latRad / 2));
-  const y = mapHeight / 2 - (mercY * mapHeight) / (2 * Math.PI);
+  // 緯度：-90〜90を0〜mapHeightにマッピング（簡易版）
+  // 上下を反転（北が上）
+  const y = ((90 - lat) * mapHeight) / 180;
   
   return { x, y };
 }
