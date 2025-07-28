@@ -16,7 +16,7 @@ export default function DifficultySelector({ onStartGame }: DifficultySelectorPr
       description: '全難易度からランダム出題',
       color: 'from-purple-500 to-indigo-600',
       hoverColor: 'hover:from-purple-600 hover:to-indigo-700',
-      questions: '243問から出題'
+      questions: '255問から出題'
     },
     {
       level: 'easy' as DifficultyLevel,
@@ -24,7 +24,7 @@ export default function DifficultySelector({ onStartGame }: DifficultySelectorPr
       description: '有名な国・基本的な問題',
       color: 'from-green-500 to-emerald-600',
       hoverColor: 'hover:from-green-600 hover:to-emerald-700',
-      questions: '50問から出題'
+      questions: '54問から出題'
     },
     {
       level: 'medium' as DifficultyLevel,
@@ -32,7 +32,7 @@ export default function DifficultySelector({ onStartGame }: DifficultySelectorPr
       description: '中程度の知識が必要',
       color: 'from-yellow-500 to-orange-600',
       hoverColor: 'hover:from-yellow-600 hover:to-orange-700',
-      questions: '82問から出題'
+      questions: '88問から出題'
     },
     {
       level: 'hard' as DifficultyLevel,
@@ -40,7 +40,7 @@ export default function DifficultySelector({ onStartGame }: DifficultySelectorPr
       description: '専門的な知識が必要',
       color: 'from-red-500 to-pink-600',
       hoverColor: 'hover:from-red-600 hover:to-pink-700',
-      questions: '111問から出題'
+      questions: '113問から出題'
     }
   ];
 

@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { QuizQuestion, GameMode } from '@/types/quiz';
 import FlagImage from './FlagImage';
 import WorldMap from './WorldMap';
+import ProblemImage from './ProblemImage';
 
 interface QuizCardProps {
   question: QuizQuestion;
@@ -128,7 +129,7 @@ export default function QuizCard({
         {question.question}
       </h2>
 
-      {/* 国旗画像表示 */}
+      {/* 画像表示 */}
       {question.imageUrl === 'flag' && question.flagCountry ? (
         <div className="flex justify-center mb-6 overflow-hidden">
           <div className="max-w-full">
@@ -138,6 +139,14 @@ export default function QuizCard({
               className="shadow-lg max-w-full h-auto"
             />
           </div>
+        </div>
+      ) : question.imageUrl && question.imageUrl.startsWith('image:') ? (
+        <div className="flex justify-center mb-6">
+          <ProblemImage 
+            imageId={question.imageUrl.replace('image:', '')}
+            className="max-w-full"
+            size={{ width: 400, height: 300 }}
+          />
         </div>
       ) : question.imageUrl && question.imageUrl !== 'flag' ? (
         <div className="text-6xl text-center mb-6">

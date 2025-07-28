@@ -2759,6 +2759,146 @@ export const quizQuestions: QuizQuestion[] = [
     explanation: '日本は世界最大のセブン-イレブン市場です。',
     funFact: '日本のセブン-イレブンは1974年に1号店がオープンし、現在2万店舗以上あります。',
     imageUrl: '🏪'
+  },
+
+  // 画像を使った道路標識問題
+  {
+    id: '95',
+    category: 'road',
+    difficulty: 'medium',
+    question: 'この道路標識はどの地域でよく見られますか？',
+    answer: 'アメリカ',
+    options: ['アメリカ', 'ヨーロッパ', '日本', 'オーストラリア'],
+    explanation: '八角形の赤いSTOPサインは北米（アメリカ・カナダ）特有の標識です。',
+    funFact: 'アメリカのSTOPサインは1915年に初めて導入され、世界で最も認識されやすい標識の一つです。',
+    imageUrl: 'image:stop-sign-octagonal'
+  },
+  {
+    id: '96',
+    category: 'road',
+    difficulty: 'hard',
+    question: 'この形状の標識はどの地域の特徴ですか？',
+    answer: 'ヨーロッパ',
+    options: ['ヨーロッパ', 'アメリカ', 'アジア', 'アフリカ'],
+    explanation: '逆三角形の譲れサインはヨーロッパで一般的に使用されています。',
+    funFact: 'この標識は1968年のウィーン道路標識条約に基づいて標準化されました。',
+    imageUrl: 'image:yield-triangular'
+  },
+  {
+    id: '97',
+    category: 'road',
+    difficulty: 'medium',
+    question: 'この円形の制限速度標識はどの国の特徴ですか？',
+    answer: 'イギリス',
+    options: ['イギリス', 'アメリカ', 'ドイツ', '日本'],
+    explanation: '赤い円で囲まれた制限速度標識はイギリス・アイルランド圏の特徴です。',
+    funFact: 'イギリスでは1967年から現在の円形制限速度標識が使用されています。',
+    imageUrl: 'image:speed-limit-circular'
+  },
+
+  // 画像を使った建築問題
+  {
+    id: '98',
+    category: 'architecture',
+    difficulty: 'easy',
+    question: 'この建築様式はどの地域の特徴ですか？',
+    answer: '東アジア',
+    options: ['東アジア', 'ヨーロッパ', '中東', '南米'],
+    explanation: '多層の塔建築（パゴダ）は中国、日本、韓国などの東アジア圏で見られます。',
+    funFact: 'パゴダは仏教寺院の一部として建設され、各層に仏像や経典が安置されています。',
+    imageUrl: 'image:pagoda-architecture'
+  },
+  {
+    id: '99',
+    category: 'architecture',
+    difficulty: 'medium',
+    question: 'この木骨造りの住宅様式はどの国の特徴ですか？',
+    answer: 'イギリス',
+    options: ['イギリス', 'ドイツ', 'フランス', 'オランダ'],
+    explanation: 'チューダー様式の木骨造り住宅は中世イギリスの特徴的な建築です。',
+    funFact: 'チューダー様式は1485-1603年のチューダー朝時代に発達した建築様式です。',
+    imageUrl: 'image:tudor-house'
+  },
+  {
+    id: '100',
+    category: 'architecture',
+    difficulty: 'medium',
+    question: 'このコロニアル様式の建築はどの国でよく見られますか？',
+    answer: 'アメリカ',
+    options: ['アメリカ', 'カナダ', 'オーストラリア', '南アフリカ'],
+    explanation: 'アメリカ東部のコロニアル様式は18世紀の植民地時代の建築です。',
+    funFact: 'コロニアル様式はヨーロッパ移民が持ち込んだ建築技術とアメリカの素材を組み合わせて発展しました。',
+    imageUrl: 'image:colonial-architecture'
+  },
+
+  // 画像を使った自然問題
+  {
+    id: '101',
+    category: 'nature',
+    difficulty: 'easy',
+    question: 'この特徴的な森林はどの国でよく見られますか？',
+    answer: 'オーストラリア',
+    options: ['オーストラリア', 'ブラジル', 'カナダ', 'ロシア'],
+    explanation: 'ユーカリの森はオーストラリア大陸特有の景観です。',
+    funFact: 'ユーカリは700種以上あり、その90%以上がオーストラリア固有種です。',
+    imageUrl: 'image:eucalyptus-forest'
+  },
+  {
+    id: '102',
+    category: 'nature',
+    difficulty: 'medium',
+    question: 'この白い幹の森林はどの地域の特徴ですか？',
+    answer: '北欧・ロシア',
+    options: ['北欧・ロシア', '北米', '中央アジア', '東欧'],
+    explanation: '白樺の森は北欧からロシアにかけての寒冷地域で見られます。',
+    funFact: '白樺は「森の白い貴婦人」と呼ばれ、フィンランドの国樹にもなっています。',
+    imageUrl: 'image:birch-forest'
+  },
+  {
+    id: '103',
+    category: 'nature',
+    difficulty: 'easy',
+    question: 'このヤシの木並木はどの気候帯でよく見られますか？',
+    answer: '熱帯',
+    options: ['熱帯', '温帯', '寒帯', '乾燥帯'],
+    explanation: 'ヤシの木は熱帯・亜熱帯地域特有の植物です。',
+    funFact: 'ヤシ科植物は約2600種あり、主に熱帯から亜熱帯地域に分布しています。',
+    imageUrl: 'image:palm-trees'
+  },
+
+  // 画像を使ったインフラ問題
+  {
+    id: '104',
+    category: 'infrastructure',
+    difficulty: 'hard',
+    question: 'この金属製のボラードはどの地域でよく見られますか？',
+    answer: 'フランス',
+    options: ['フランス', 'イギリス', 'ドイツ', 'イタリア'],
+    explanation: 'この装飾的な金属製ボラードはフランスの都市部で一般的です。',
+    funFact: 'パリのボラードは19世紀から設置されており、市内に約10万本あるとされています。',
+    imageUrl: 'image:bollard-metal'
+  },
+  {
+    id: '105',
+    category: 'infrastructure',
+    difficulty: 'medium',
+    question: 'このコンクリート製の電柱はどの国の特徴ですか？',
+    answer: '日本',
+    options: ['日本', '韓国', '台湾', 'シンガポール'],
+    explanation: '円筒形のコンクリート電柱は日本で最も一般的な電柱です。',
+    funFact: '日本には約3000万本の電柱があり、その約8割がコンクリート製です。',
+    imageUrl: 'image:utility-pole-concrete'
+  },
+  {
+    id: '106',
+    category: 'infrastructure',
+    difficulty: 'easy',
+    question: 'この赤いポストはどの国の特徴ですか？',
+    answer: 'イギリス',
+    options: ['イギリス', 'カナダ', 'オーストラリア', 'アイルランド'],
+    explanation: '赤い郵便ポストはイギリス（英国）の象徴的なインフラです。',
+    funFact: 'イギリスの赤いポストは1874年から使用されており、現在も約11万5千個が設置されています。',
+    imageUrl: 'image:mailbox-red'
   }
 ];
 
