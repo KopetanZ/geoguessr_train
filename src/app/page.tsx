@@ -10,6 +10,7 @@ import DifficultySelector from '@/components/DifficultySelector';
 import ThemeToggle from '@/components/ThemeToggle';
 import StatsModal from '@/components/StatsModal';
 import DetailedStats from '@/components/DetailedStats';
+import AudioToggle from '@/components/AudioToggle';
 
 export default function Home() {
   const [selectedDifficulty, setSelectedDifficulty] = useState<DifficultyLevel | undefined>(undefined);
@@ -84,7 +85,10 @@ export default function Home() {
                   国旗・言語・電話番号・建築で国を当てよう！
                 </p>
               </div>
-              <ThemeToggle />
+              <div className="flex space-x-2">
+                <AudioToggle />
+                <ThemeToggle />
+              </div>
             </div>
           </div>
         </header>
@@ -141,7 +145,10 @@ export default function Home() {
                 💡 キーボード: 1-4キーで回答、Enterで次へ
               </p>
             </div>
-            <ThemeToggle />
+            <div className="flex space-x-2">
+              <AudioToggle />
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       </header>

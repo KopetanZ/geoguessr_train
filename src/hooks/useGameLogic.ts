@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { QuizQuestion, GameState, CategoryStats, DifficultyLevel, GameMode } from '@/types/quiz';
 import { getRandomQuestions } from '@/data/questions';
+import { playCorrectSound, playIncorrectSound } from '@/utils/audioUtils';
 
 const NORMAL_TIME_LIMIT = 30; // ノーマルモード: 30秒
 const TIMEATTACK_TIME_LIMIT = 15; // タイムアタックモード: 15秒
@@ -123,19 +124,19 @@ export function useGameLogic(questionCount: number = 10, difficulty?: Difficulty
 
     setStreak(prev => isCorrect ? prev + 1 : 0);
 
-    // 効果音（ブラウザの場合）
+    // 効果音の再生
     if (typeof window !== 'undefined') {
       try {
         if (isCorrect) {
-          // 正解音
-          const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmESBEen');
-          audio.volume = 0.3;
-          audio.play().catch(() => {});
+          // 正解音（ピンポーン）
+          playCorrectSound().catch(() => {
+            // エラー時は無視
+          });
         } else {
-          // 不正解音
-          const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmESBEen');
-          audio.volume = 0.2;
-          audio.play().catch(() => {});
+          // 不正解音（ブー）
+          playIncorrectSound().catch(() => {
+            // エラー時は無視
+          });
         }
       } catch {
         // 音声再生エラーは無視
