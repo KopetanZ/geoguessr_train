@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import { QuizQuestion, GameMode } from '@/types/quiz';
 import FlagImage from './FlagImage';
+import WorldMap from './WorldMap';
 
 interface QuizCardProps {
   question: QuizQuestion;
@@ -188,15 +189,23 @@ export default function QuizCard({
 
       {/* 解答と豆知識 */}
       {showAnswer && (
-        <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-          <div className="mb-3">
-            <h3 className="font-bold text-green-700 dark:text-green-400 mb-2">✅ 正解: {question.answer}</h3>
-            <p className="text-gray-700 dark:text-gray-300 mb-3">{question.explanation}</p>
+        <div className="mt-6 space-y-4">
+          <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+            <div className="mb-3">
+              <h3 className="font-bold text-green-700 dark:text-green-400 mb-2">✅ 正解: {question.answer}</h3>
+              <p className="text-gray-700 dark:text-gray-300 mb-3">{question.explanation}</p>
+            </div>
+            <div className="border-t dark:border-gray-600 pt-3">
+              <h4 className="font-bold text-blue-700 dark:text-blue-400 mb-2">💡 豆知識</h4>
+              <p className="text-gray-700 dark:text-gray-300">{question.funFact}</p>
+            </div>
           </div>
-          <div className="border-t dark:border-gray-600 pt-3">
-            <h4 className="font-bold text-blue-700 dark:text-blue-400 mb-2">💡 豆知識</h4>
-            <p className="text-gray-700 dark:text-gray-300">{question.funFact}</p>
-          </div>
+          
+          {/* 世界地図での位置表示 */}
+          <WorldMap 
+            countryName={question.answer}
+            className="animate-fadeIn"
+          />
         </div>
       )}
     </div>
