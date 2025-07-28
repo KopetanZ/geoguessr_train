@@ -24,13 +24,15 @@ export default function FlagImage({
   // 国旗が利用可能かチェック
   if (!hasCountryFlag(countryName)) {
     return (
-      <div 
-        className={`flex items-center justify-center bg-gray-100 border-2 border-gray-300 rounded ${className}`}
-        style={{ width: Math.floor(size * 1.5), height: size }}
-      >
-        <span className="text-gray-500 text-sm font-medium">
-          {countryName}
-        </span>
+      <div className={`inline-block ${className}`} style={{ maxWidth: '100%' }}>
+        <div 
+          className="flex items-center justify-center bg-gray-100 border-2 border-gray-300 rounded max-w-full"
+          style={{ width: Math.floor(size * 1.5), height: size, maxWidth: '100%' }}
+        >
+          <span className="text-gray-500 text-sm font-medium">
+            {countryName}
+          </span>
+        </div>
       </div>
     );
   }
@@ -42,15 +44,17 @@ export default function FlagImage({
   // エラー時のフォールバック表示
   if (imageError && currentSrcIndex >= srcArray.length - 1) {
     return (
-      <div 
-        className={`flex items-center justify-center bg-gradient-to-br from-blue-50 to-red-50 border-2 border-gray-300 rounded shadow-sm ${className}`}
-        style={{ width: Math.floor(size * 1.5), height: size }}
-      >
-        <div className="text-center">
-          <div className="text-2xl mb-1">🏁</div>
-          <span className="text-gray-600 text-xs font-medium">
-            {countryName}
-          </span>
+      <div className={`inline-block ${className}`} style={{ maxWidth: '100%' }}>
+        <div 
+          className="flex items-center justify-center bg-gradient-to-br from-blue-50 to-red-50 border-2 border-gray-300 rounded shadow-sm max-w-full"
+          style={{ width: Math.floor(size * 1.5), height: size, maxWidth: '100%' }}
+        >
+          <div className="text-center">
+            <div className="text-2xl mb-1">🏁</div>
+            <span className="text-gray-600 text-xs font-medium">
+              {countryName}
+            </span>
+          </div>
         </div>
       </div>
     );
@@ -80,28 +84,30 @@ export default function FlagImage({
   };
 
   return (
-    <div className={`relative ${className}`} style={{ width: Math.floor(size * 1.5), height: size }}>
-      {/* ローディング状態 */}
-      {isLoading && (
-        <div 
-          className="absolute inset-0 flex items-center justify-center bg-gray-100 rounded animate-pulse"
-          style={{ width: Math.floor(size * 1.5), height: size }}
-        >
-          <div className="w-6 h-6 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-        </div>
-      )}
-      
-      {/* 国旗画像 */}
-      <Image
-        src={srcArray[currentSrcIndex]}
-        alt={altText}
-        width={Math.floor(size * 1.5)}
-        height={size}
-        className={`rounded shadow-md border border-gray-200 object-cover ${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
-        onLoad={handleImageLoad}
-        onError={handleImageError}
-        priority={size >= 80} // 大きい画像は優先読み込み
-      />
+    <div className={`relative inline-block ${className}`} style={{ maxWidth: '100%' }}>
+      <div style={{ width: Math.floor(size * 1.5), height: size, maxWidth: '100%' }}>
+        {/* ローディング状態 */}
+        {isLoading && (
+          <div 
+            className="absolute inset-0 flex items-center justify-center bg-gray-100 rounded animate-pulse"
+            style={{ width: '100%', height: '100%' }}
+          >
+            <div className="w-6 h-6 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+          </div>
+        )}
+        
+        {/* 国旗画像 */}
+        <Image
+          src={srcArray[currentSrcIndex]}
+          alt={altText}
+          width={Math.floor(size * 1.5)}
+          height={size}
+          className={`rounded shadow-md border border-gray-200 object-cover max-w-full h-auto ${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
+          onLoad={handleImageLoad}
+          onError={handleImageError}
+          priority={size >= 80} // 大きい画像は優先読み込み
+        />
+      </div>
     </div>
   );
 }

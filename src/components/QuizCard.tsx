@@ -130,12 +130,14 @@ export default function QuizCard({
 
       {/* 国旗画像表示 */}
       {question.imageUrl === 'flag' && question.flagCountry ? (
-        <div className="flex justify-center mb-6">
-          <FlagImage 
-            countryName={question.flagCountry}
-            size={120}
-            className="shadow-lg"
-          />
+        <div className="flex justify-center mb-6 overflow-hidden">
+          <div className="max-w-full">
+            <FlagImage 
+              countryName={question.flagCountry}
+              size={80}
+              className="shadow-lg max-w-full h-auto"
+            />
+          </div>
         </div>
       ) : question.imageUrl && question.imageUrl !== 'flag' ? (
         <div className="text-6xl text-center mb-6">
