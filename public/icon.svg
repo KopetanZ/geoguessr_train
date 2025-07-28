@@ -1,0 +1,49 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景円 -->
+  <circle cx="256" cy="256" r="256" fill="#2563eb"/>
+  
+  <!-- 地球のベース -->
+  <circle cx="256" cy="256" r="200" fill="#3b82f6" stroke="#1d4ed8" stroke-width="4"/>
+  
+  <!-- 大陸のシルエット（簡略化された世界地図） -->
+  <!-- アフリカ大陸 -->
+  <path d="M220 180 Q240 160 260 180 Q280 200 275 240 Q270 280 250 300 Q230 290 220 270 Q210 240 220 180Z" fill="#1d4ed8"/>
+  
+  <!-- ヨーロッパ -->
+  <path d="M240 160 Q250 150 270 155 Q280 165 275 175 Q265 180 255 175 Q245 170 240 160Z" fill="#1d4ed8"/>
+  
+  <!-- アジア -->
+  <path d="M280 155 Q320 150 350 170 Q380 190 375 220 Q370 240 350 235 Q330 230 310 220 Q290 200 280 180 Q275 165 280 155Z" fill="#1d4ed8"/>
+  
+  <!-- アメリカ大陸 -->
+  <path d="M120 200 Q140 180 160 190 Q180 210 175 250 Q170 290 150 310 Q130 300 120 280 Q110 240 120 200Z" fill="#1d4ed8"/>
+  
+  <!-- オーストラリア -->
+  <path d="M320 280 Q340 275 350 285 Q355 295 345 300 Q335 295 325 290 Q320 285 320 280Z" fill="#1d4ed8"/>
+  
+  <!-- 緯度線 -->
+  <circle cx="256" cy="256" r="200" fill="none" stroke="#60a5fa" stroke-width="2" opacity="0.6"/>
+  <circle cx="256" cy="256" r="150" fill="none" stroke="#60a5fa" stroke-width="1" opacity="0.4"/>
+  <circle cx="256" cy="256" r="100" fill="none" stroke="#60a5fa" stroke-width="1" opacity="0.4"/>
+  
+  <!-- 経度線 -->
+  <line x1="56" y1="256" x2="456" y2="256" stroke="#60a5fa" stroke-width="2" opacity="0.6"/>
+  <line x1="256" y1="56" x2="256" y2="456" stroke="#60a5fa" stroke-width="2" opacity="0.6"/>
+  <line x1="156" y1="256" x2="356" y2="256" stroke="#60a5fa" stroke-width="1" opacity="0.4"/>
+  
+  <!-- 中央のアイコン：位置マーカー -->
+  <circle cx="256" cy="256" r="25" fill="#fbbf24" stroke="#f59e0b" stroke-width="3"/>
+  <circle cx="256" cy="256" r="12" fill="#f59e0b"/>
+  
+  <!-- フラグアイコン -->
+  <rect x="270" y="200" width="30" height="20" fill="#ef4444" rx="2"/>
+  <rect x="270" y="210" width="30" height="10" fill="#ffffff"/>
+  <line x1="268" y1="195" x2="268" y2="225" stroke="#374151" stroke-width="2"/>
+  
+  <!-- クイズマーク -->
+  <text x="200" y="340" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#fbbf24">?</text>
+  <text x="320" y="180" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#fbbf24">?</text>
+  
+  <!-- 外側のリング装飾 -->
+  <circle cx="256" cy="256" r="240" fill="none" stroke="#1e40af" stroke-width="8" opacity="0.8"/>
+</svg>

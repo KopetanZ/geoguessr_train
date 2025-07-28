@@ -1,0 +1,5 @@
+<svg width="72" height="72" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="36" cy="36" r="36" fill="#2563eb"/>
+    <circle cx="36" cy="36" r="24" fill="#3b82f6" stroke="#1d4ed8" stroke-width="2"/>
+    <text x="36" y="45" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#fbbf24" text-anchor="middle">🌍</text>
+  </svg>
