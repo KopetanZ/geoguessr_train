@@ -2902,6 +2902,15 @@ export const quizQuestions: QuizQuestion[] = [
   }
 ];
 
+// 選択肢をランダムにシャッフルする関数
+export const shuffleOptions = (question: QuizQuestion): QuizQuestion => {
+  const shuffledOptions = [...question.options].sort(() => 0.5 - Math.random());
+  return {
+    ...question,
+    options: shuffledOptions
+  };
+};
+
 export const getRandomQuestions = (count: number = 10, difficulty?: DifficultyLevel): QuizQuestion[] => {
   let filteredQuestions = quizQuestions;
   
@@ -2910,7 +2919,10 @@ export const getRandomQuestions = (count: number = 10, difficulty?: DifficultyLe
   }
   
   const shuffled = [...filteredQuestions].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, Math.min(count, filteredQuestions.length));
+  const selectedQuestions = shuffled.slice(0, Math.min(count, filteredQuestions.length));
+  
+  // 各問題の選択肢をランダム化
+  return selectedQuestions.map(question => shuffleOptions(question));
 };
 
 export const getQuestionsByCategory = (category: QuizQuestion['category'], difficulty?: DifficultyLevel): QuizQuestion[] => {
@@ -2920,9 +2932,12 @@ export const getQuestionsByCategory = (category: QuizQuestion['category'], diffi
     filteredQuestions = filteredQuestions.filter(q => q.difficulty === difficulty);
   }
   
-  return filteredQuestions;
+  // 各問題の選択肢をランダム化
+  return filteredQuestions.map(question => shuffleOptions(question));
 };
 
 export const getQuestionsByDifficulty = (difficulty: DifficultyLevel): QuizQuestion[] => {
-  return quizQuestions.filter(q => q.difficulty === difficulty);
+  const filteredQuestions = quizQuestions.filter(q => q.difficulty === difficulty);
+  // 各問題の選択肢をランダム化
+  return filteredQuestions.map(question => shuffleOptions(question));
 };
